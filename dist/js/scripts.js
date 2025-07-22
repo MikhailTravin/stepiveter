@@ -205,7 +205,7 @@ if (buttonContacts) {
 const header = document.querySelector('.header');
 if (header) {
   window.addEventListener('scroll', function () {
-    if (window.scrollY > 0) {
+    if (window.scrollY > 300) {
       header.classList.add('_header-scroll');
     } else {
       header.classList.remove('_header-scroll');
