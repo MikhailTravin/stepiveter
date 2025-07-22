@@ -1203,6 +1203,25 @@ a {
           filter: grayscale(100%);
 }
 
+.watch {
+  opacity: 0;
+  -webkit-transform: translate3d(0, 100px, 0);
+          transform: translate3d(0, 100px, 0);
+  -webkit-transition-duration: 0.8s;
+          transition-duration: 0.8s;
+  -webkit-transition-timing-function: ease;
+          transition-timing-function: ease;
+  -webkit-transition-property: opacity, -webkit-transform;
+  transition-property: opacity, -webkit-transform;
+  transition-property: opacity, transform;
+  transition-property: opacity, transform, -webkit-transform;
+}
+.watch._watcher-view {
+  opacity: 1;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+}
+
 .block-intro {
   padding: 50px 0px 16px 0px;
 }
@@ -2115,6 +2134,8 @@ a {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    padding: 20px;
+    border-radius: 20px;
   }
 }
 .block-about__image {
@@ -2130,6 +2151,7 @@ a {
     -webkit-box-flex: 1;
         -ms-flex: 1 1 auto;
             flex: 1 1 auto;
+    border-radius: 15px;
   }
 }
 .block-about__pic1 {
@@ -2160,6 +2182,13 @@ a {
       -ms-flex-direction: column;
           flex-direction: column;
 }
+@media (max-width: 992px) {
+  .block-about__body {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
+  }
+}
 .block-about__titles {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2168,6 +2197,17 @@ a {
       -ms-flex-align: start;
           align-items: start;
   gap: 20px;
+}
+@media (max-width: 768px) {
+  .block-about__titles {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+  }
 }
 .block-about__titles .title2 {
   -webkit-box-flex: 1;
@@ -2179,6 +2219,13 @@ a {
       -ms-flex: 0 0 65px;
           flex: 0 0 65px;
   fill: var(--brown);
+}
+@media (max-width: 768px) {
+  .block-about__titles svg {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
+  }
 }
 .block-about__subtitle {
   display: -webkit-box;
