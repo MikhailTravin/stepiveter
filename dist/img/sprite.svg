@@ -18,6 +18,9 @@
 <symbol id="menu" viewBox="0 0 16 8">
   <path d="M0 .817h16v1H0zm0 6h16v1H0z"/>
 </symbol>
+<symbol id="play" viewBox="0 0 16 18">
+  <path d="M14.75 7.7a1.5 1.5 0 0 1 0 2.599l-12 6.928A1.5 1.5 0 0 1 .5 15.928V2.072a1.5 1.5 0 0 1 2.25-1.3l12 6.929Z"/>
+</symbol>
 <symbol id="plus" viewBox="0 0 14 15">
   <path d="M6.243.701h1.51V14.3h-1.51V.701Z"/>
   <path d="M13.797 6.745v1.51H.2v-1.51h13.598Z"/>
