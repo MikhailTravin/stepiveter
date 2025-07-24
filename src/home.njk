@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<title>Главная</title>
+	{% include 'blocks/head.njk' %}
+</head>
+
+<body class="preload">
+	<div class="main-wrapper-outer">
+		{% include 'blocks/header.njk' %}
+		<main class="main">
+
+			<div class="block-intro block1">
+				<div class="container">
+					<div class="block-intro__content">
+						<img src="img/bg1.webp" alt="" class="block-intro__bg">
+						<div data-watch data-watch-once class="block-intro__top top-block-intro watch">
+							<div class="top-block-intro__body">
+								<h1 class="title1">Степь и Ветер</h1>
+								<p>
+									Делаем вкусные напитки в Оренбурге на весь мир
+								</p>
+							</div>
+						</div>
+						<div data-watch data-watch-once class="block-intro__bottom bottom-block-intro watch">
+							<div class="bottom-block-intro__slider swiper">
+								<div class="bottom-block-intro__wrapper swiper-wrapper">
+									<div class="bottom-block-intro__slide swiper-slide">
+										<div class="bottom-block-intro__item">
+											<video playsinline autoplay muted loop src="files/videos/video.mp4">
+												<source src="files/videos/video.mp4" type="video/mp4">
+											</video>
+											<div class="bottom-block-intro__text">
+												<div class="bottom-block-intro__title">
+													Витрина
+												</div>
+												<a href="showcase.html" class="btn-circle btn-circle-black">
+													<svg aria-hidden="true" width="17" height="17">
+														<use xlink:href="img/sprite.svg#arrow1"></use>
+													</svg>
+												</a>
+											</div>
+										</div>
+									</div>
+									<div class="bottom-block-intro__slide swiper-slide">
+										<div class="bottom-block-intro__item">
+											<img src="img/image1.webp" alt="">
+											<div class="bottom-block-intro__text">
+												<div class="bottom-block-intro__title">
+													О нас
+												</div>
+												<a href="about.html" class="btn-circle btn-circle-black">
+													<svg aria-hidden="true" width="17" height="17">
+														<use xlink:href="img/sprite.svg#arrow1"></use>
+													</svg>
+												</a>
+											</div>
+										</div>
+									</div>
+									<div class="bottom-block-intro__slide swiper-slide">
+										<div class="bottom-block-intro__item">
+											<img src="img/image2.webp" alt="">
+											<div class="bottom-block-intro__text">
+												<div class="bottom-block-intro__title">
+													Где купить
+												</div>
+												<a href="buy.html" class="btn-circle btn-circle-black">
+													<svg aria-hidden="true" width="17" height="17">
+														<use xlink:href="img/sprite.svg#arrow1"></use>
+													</svg>
+												</a>
+											</div>
+										</div>
+									</div>
+									<div class="bottom-block-intro__slide swiper-slide">
+										<div class="bottom-block-intro__item">
+											<img src="img/image3.webp" alt="">
+											<div class="bottom-block-intro__text">
+												<div class="bottom-block-intro__title">
+													Тапрум
+												</div>
+												<a href="https://xn--80ayiehj.xn--p1ai/"
+													class="btn-circle btn-circle-black">
+													<svg aria-hidden="true" width="17" height="17">
+														<use xlink:href="img/sprite.svg#arrow1"></use>
+													</svg>
+												</a>
+											</div>
+										</div>
+									</div>
+									<div class="bottom-block-intro__slide swiper-slide">
+										<div class="bottom-block-intro__item">
+											<img src="img/image4.webp" alt="">
+											<div class="bottom-block-intro__text">
+												<div class="bottom-block-intro__title">
+													Фестиваль
+												</div>
+												<a href="https://fest.stepiveter.ru/"
+													class="btn-circle btn-circle-black">
+													<svg aria-hidden="true" width="17" height="17">
+														<use xlink:href="img/sprite.svg#arrow1"></use>
+													</svg>
+												</a>
+											</div>
+										</div>
+									</div>
+									<div class="bottom-block-intro__slide swiper-slide">
+										<div class="bottom-block-intro__item">
+											<img src="img/image5.webp" alt="">
+											<div class="bottom-block-intro__text">
+												<div class="bottom-block-intro__title">
+													Мерч
+												</div>
+												<a href="https://xn--80ayiehj.xn--p1ai/"
+													class="btn-circle btn-circle-black">
+													<svg aria-hidden="true" width="17" height="17">
+														<use xlink:href="img/sprite.svg#arrow1"></use>
+													</svg>
+												</a>
+											</div>
+										</div>
+									</div>
+									<div class="bottom-block-intro__slide swiper-slide">
+										<div class="bottom-block-intro__item">
+											<video playsinline autoplay muted loop src="files/videos/video.mp4"
+												class="video-effect">
+												<source src="files/videos/video.mp4" type="video/mp4">
+											</video>
+											<div class="bottom-block-intro__text">
+												<div class="bottom-block-intro__title">
+													Экскурсии
+												</div>
+												<a href="#" data-popup="#excursions"
+													class="btn-circle btn-circle-black">
+													<svg aria-hidden="true" width="17" height="17">
+														<use xlink:href="img/sprite.svg#arrow1"></use>
+													</svg>
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="bottom-block-intro__arrow-prev btn-circle btn-circle-orange arrow-prev">
+								<svg aria-hidden="true" width="7" height="12">
+									<use xlink:href="img/sprite.svg#arrow2"></use>
+								</svg>
+							</div>
+							<div class="bottom-block-intro__arrow-next btn-circle btn-circle-orange arrow-next">
+								<svg aria-hidden="true" width="7" height="12">
+									<use xlink:href="img/sprite.svg#arrow2"></use>
+								</svg>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="block block1">
+				<div class="container">
+					<div data-watch data-watch-once class="block__content watch">
+						<div class="block__left">
+							<h2 class="title2">
+								B2B
+							</h2>
+							<a href="#" class="btn btn-orange">
+								<span>Войти в кабинет</span>
+								<div class="btn-circle btn-circle-orange">
+									<svg aria-hidden="true" width="17" height="16">
+										<use xlink:href="img/sprite.svg#arrow1"></use>
+									</svg>
+								</div>
+							</a>
+						</div>
+						<div class="block__center">
+							<p>
+								Станьте нашим партнёром
+							</p>
+							<p>
+								Станьте нашим партнёром
+							</p>
+							<p>
+								Станьте нашим партнёром
+							</p>
+							<p>
+								Станьте нашим партнёром
+							</p>
+						</div>
+						<div class="block__right">
+							<div class="block__titles">
+								<div class="block__title">
+									Узнайте как стать нашим партнёром и делать заказы прямо Через сайт
+								</div>
+								<a href="b2b.html" class="btn-circle btn-circle-orange arrow-next">
+									<svg aria-hidden="true" width="17" height="16">
+										<use xlink:href="img/sprite.svg#arrow1"></use>
+									</svg>
+								</a>
+							</div>
+							<div class="block__pic">
+								<img loading="lazy" src="img/image6.webp" alt="">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="block-forms block1">
+				<div class="container">
+					<div data-watch data-watch-once class="block-forms__content watch">
+						<form data-dev data-popup-message="#thanks" action="#">
+							<div class="block-forms__top">
+								<h2 class="title2">
+									Подпишись на рассылку и получи прайс-лист
+								</h2>
+								<ul>
+									<li>Новые вкусы и лимитированные сорта</li>
+									<li>Новости и события</li>
+								</ul>
+							</div>
+							<div class="block-forms__bottom">
+								<div class="block-forms__inputs">
+									<div class="block-forms__input">
+										<input data-required autocomplete="off" type="text" name="form[]"
+											placeholder="Введите имя">
+										<div class="block-forms__placeholder">
+											Ваше имя <span>*</span>
+										</div>
+									</div>
+									<div class="block-forms__input">
+										<input data-required autocomplete="off" type="text" name="form[]"
+											placeholder="Введите E-mail">
+										<div class="block-forms__placeholder">
+											E-mail <span>*</span>
+										</div>
+									</div>
+								</div>
+								<button type="submit" class="btn btn-orange">Получить</button>
+							</div>
+							<div class="checkboxes">
+								<div class="checkbox">
+									<input data-required id="c_1" class="checkbox__input" type="checkbox" value="1"
+										name="form[]">
+									<label for="c_1" class="checkbox__label">
+										<span class="checkbox__icon">
+											<svg aria-hidden="true" width="15" height="12">
+												<use xlink:href="img/sprite.svg#chek1"></use>
+											</svg>
+										</span>
+										<span class="checkbox__text">Я согласен
+											получать информационную и рекламную рассылки</span>
+									</label>
+								</div>
+								<div class="checkbox">
+									<input data-required id="c_2" class="checkbox__input" type="checkbox" value="1"
+										name="form[]">
+									<label for="c_2" class="checkbox__label">
+										<span class="checkbox__icon">
+											<svg aria-hidden="true" width="15" height="12">
+												<use xlink:href="img/sprite.svg#chek1"></use>
+											</svg>
+										</span>
+										<span class="checkbox__text">
+											Даю <a href="#" target="_blank">согласие</a> на обработку моих персональных
+											данных в
+											соответствии с
+											<a href="#" target="_blank">политикой обработки персональных данных</a>
+										</span>
+									</label>
+								</div>
+							</div>
+						</form>
+						<div class="block-forms__right">
+							<div class="block-forms__columns">
+								<div class="block-forms__column">
+									<img loading="lazy" src="img/products/image1.webp" alt="">
+								</div>
+								<div class="block-forms__column">
+									<img loading="lazy" src="img/products/image2.webp" alt="">
+								</div>
+								<div class="block-forms__column">
+									<img loading="lazy" src="img/products/image3.webp" alt="">
+								</div>
+								<div class="block-forms__column">
+									<img loading="lazy" src="img/products/image4.webp" alt="">
+								</div>
+							</div>
+							<div class="block-forms__columns">
+								<div class="block-forms__column">
+									<img loading="lazy" src="img/products/image5.webp" alt="">
+								</div>
+								<div class="block-forms__column">
+									<img loading="lazy" src="img/products/image6.webp" alt="">
+								</div>
+								<div class="block-forms__column">
+									<img loading="lazy" src="img/products/image7.webp" alt="">
+								</div>
+								<div class="block-forms__column">
+									<img loading="lazy" src="img/products/image8.webp" alt="">
+								</div>
+							</div>
+							<div class="block-forms__columns block-forms__columns--reverse">
+								<div class="block-forms__column">
+									<img loading="lazy" src="img/products/image9.webp" alt="">
+								</div>
+								<div class="block-forms__column">
+									<img loading="lazy" src="img/products/image10.webp" alt="">
+								</div>
+								<div class="block-forms__column">
+									<img loading="lazy" src="img/products/image11.webp" alt="">
+								</div>
+								<div class="block-forms__column">
+									<img loading="lazy" src="img/products/image12.webp" alt="">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</main>
+		{% include 'blocks/footer.njk' %}
+	</div>
+	{% include 'blocks/scripts.njk' %}
+	<div id="excursions" aria-hidden="true" class="popup">
+		<div class="popup__wrapper">
+			<div class="popup__content">
+				<div class="popup__body">
+					<div class="popup__top">
+						<div class="popup__title">
+							Записаться на экскурсию
+						</div>
+						<div data-close class="popup__close close">
+							<svg aria-hidden="true" width="16" height="16">
+								<use xlink:href="img/sprite.svg#close"></use>
+							</svg>
+						</div>
+					</div>
+					<p class="mini">
+						Чтобы записаться позвоните по телефону или напишите в телеграм. Согласуем с вами дату и время.
+					</p>
+					<div class="popup__contacts contacts-popup">
+						<div class="contacts-popup__column">
+							<a href="tel:89325511666" class="contacts-popup__phone">8 (932) 551-16-66</a>
+							<a href="https://t.me/atara_ksia" class="contacts-popup__social">
+								<span>@atara_ksia</span>
+								<svg aria-hidden="true" width="19" height="17">
+									<use xlink:href="img/sprite.svg#telegram"></use>
+								</svg>
+							</a>
+						</div>
+						<div class="contacts-popup__column">
+							<a href="tel:89058481865" class="contacts-popup__phone">8 (905) 848-18-65</a>
+							<a href="https://t.me/TaproomSW" class="contacts-popup__social">
+								<span>@TaproomSW</span>
+								<svg aria-hidden="true" width="19" height="17">
+									<use xlink:href="img/sprite.svg#telegram"></use>
+								</svg>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="thanks" aria-hidden="true" class="popup">
+		<div class="popup__wrapper">
+			<div class="popup__content">
+				<div class="popup__body">
+					<div class="popup__top">
+						<div class="popup__title">
+							Подписка прошла успешно
+						</div>
+						<div data-close class="popup__close close">
+							<svg aria-hidden="true" width="16" height="16">
+								<use xlink:href="img/sprite.svg#close"></use>
+							</svg>
+						</div>
+					</div>
+					<p>
+						На указанную почту мы отправили приветственное письмо с оптовым прайсом.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

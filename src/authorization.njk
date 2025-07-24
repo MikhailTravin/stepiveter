@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Авторизация</title>
+    {% include 'blocks/head.njk' %}
+</head>
+
+<body class="preload">
+    <div class="main-wrapper-outer">
+        {% include 'blocks/header.njk' %}
+        <main class="main">
+
+            
+
+        </main>
+        {% include 'blocks/footer.njk' %}
+    </div>
+    {% include 'blocks/scripts.njk' %}
+    <div id="thanks" aria-hidden="true" class="popup">
+        <div class="popup__wrapper">
+            <div class="popup__content">
+                <div class="popup__body">
+                    <div class="popup__top">
+                        <div class="popup__title">
+                            Ваша заявка принята
+                        </div>
+                        <div data-close class="popup__close close">
+                            <svg aria-hidden="true" width="16" height="16">
+                                <use xlink:href="img/sprite.svg#close"></use>
+                            </svg>
+                        </div>
+                    </div>
+                    <p>
+                        Дождитесь звонка менеджера для подтверждения регистрации
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

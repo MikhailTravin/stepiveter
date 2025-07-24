@@ -1,0 +1,1647 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<title>Витрина</title>
+	{% include 'blocks/head.njk' %}
+</head>
+
+<body class="preload">
+	<div class="main-wrapper-outer">
+		{% include 'blocks/header.njk' %}
+		<main class="main">
+
+			<div class="block-intro main-block-intro block-intro-showcase">
+				<div class="container">
+					<div class="block-intro__content">
+						<img src="img/bg2.webp" alt="" class="block-intro__bg">
+						<div data-watch data-watch-once class="block-intro__top top-block-intro watch">
+							<div class="top-block-intro__body">
+								<h1 class="title1">Витрина</h1>
+							</div>
+							<div class="top-block-intro__image top-block-intro-video">
+								<video playsinline autoplay muted loop src="files/videos/video.mp4">
+									<source src="files/videos/video.mp4" type="video/mp4">
+								</video>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="block-catalog block1">
+				<div class="container">
+					<div class="block-catalog__content">
+						<h2 class="title2">
+							Линейка сортов
+						</h2>
+						<div class="block-catalog__body">
+							<div data-watch data-watch-once class="block-catalog__left left-block-catalog watch">
+								<div class="left-block-catalog__navigation">
+									<div data-tabs="classic" class="left-block-catalog__button _tab-active">
+										<div class="left-block-catalog__titles">
+											<div data-text="Классические" class="left-block-catalog__title">
+												<span>Классические</span>
+											</div>
+											<div class="left-block-catalog__number">
+												(3)
+											</div>
+										</div>
+										<div class="left-block-catalog__icon">
+											<svg aria-hidden="true" width="11" height="17">
+												<use xlink:href="img/sprite.svg#arrow2"></use>
+											</svg>
+										</div>
+									</div>
+									<div data-tabs="melomel" class="left-block-catalog__button">
+										<div class="left-block-catalog__titles">
+											<div data-text="Моносорта" class="left-block-catalog__title">
+												<span>Моносорта</span>
+											</div>
+											<div class="left-block-catalog__number">
+												(4)
+											</div>
+										</div>
+										<div class="left-block-catalog__icon">
+											<svg aria-hidden="true" width="11" height="17">
+												<use xlink:href="img/sprite.svg#arrow2"></use>
+											</svg>
+										</div>
+									</div>
+									<div data-tabs="melomel2" class="left-block-catalog__button">
+										<div class="left-block-catalog__titles">
+											<div data-text="Сложные вкусы" class="left-block-catalog__title">
+												<span>Сложные вкусы</span>
+											</div>
+											<div class="left-block-catalog__number">
+												(8)
+											</div>
+										</div>
+										<div class="left-block-catalog__icon">
+											<svg aria-hidden="true" width="11" height="17">
+												<use xlink:href="img/sprite.svg#arrow2"></use>
+											</svg>
+										</div>
+									</div>
+									<div data-tabs="bochet" class="left-block-catalog__button">
+										<div class="left-block-catalog__titles">
+											<div data-text="Боше" class="left-block-catalog__title">
+												<span>Боше</span>
+											</div>
+											<div class="left-block-catalog__number">
+												(3)
+											</div>
+										</div>
+										<div class="left-block-catalog__icon">
+											<svg aria-hidden="true" width="11" height="17">
+												<use xlink:href="img/sprite.svg#arrow2"></use>
+											</svg>
+										</div>
+									</div>
+									<div data-tabs="weird" class="left-block-catalog__button">
+										<div class="left-block-catalog__titles">
+											<div data-text="Смузи" class="left-block-catalog__title">
+												<Span>Смузи</Span>
+											</div>
+											<div class="left-block-catalog__number">
+												(5)
+											</div>
+										</div>
+										<div class="left-block-catalog__icon">
+											<svg aria-hidden="true" width="11" height="17">
+												<use xlink:href="img/sprite.svg#arrow2"></use>
+											</svg>
+										</div>
+									</div>
+									<div data-tabs="melomel3" class="left-block-catalog__button">
+										<div class="left-block-catalog__titles">
+											<div data-text="Премиум" class="left-block-catalog__title">
+												<span>Премиум</span>
+											</div>
+											<div class="left-block-catalog__number">
+												(3)
+											</div>
+										</div>
+										<div class="left-block-catalog__icon">
+											<svg aria-hidden="true" width="11" height="17">
+												<use xlink:href="img/sprite.svg#arrow2"></use>
+											</svg>
+										</div>
+									</div>
+									<div data-tabs="tea" class="left-block-catalog__button">
+										<div class="left-block-catalog__titles">
+											<div data-text="Чай безалкогольный" class="left-block-catalog__title">
+												<span>Чай безалкогольный</span>
+											</div>
+											<div class="left-block-catalog__number">
+												(6)
+											</div>
+										</div>
+										<div class="left-block-catalog__icon">
+											<svg aria-hidden="true" width="11" height="17">
+												<use xlink:href="img/sprite.svg#arrow2"></use>
+											</svg>
+										</div>
+									</div>
+								</div>
+								<select name="form[2]" class="left-block-catalog__select">
+									<option value="1" data-tabs="classic" selected class="_tab-active _select-selected">
+										Классические <span>(3)</span>
+									</option>
+									<option value="2" data-tabs="melomel">
+										Моносорта <span>(3)</span>
+									</option>
+									<option value="3" data-tabs="melomel2">
+										Сложные вкусы <span>(3)</span>
+									</option>
+									<option value="4" data-tabs="bochet">
+										Боше <span>(3)</span>
+									</option>
+									<option value="5" data-tabs="weird">
+										Смузи <span>(3)</span>
+									</option>
+									<option value="6" data-tabs="melomel3">
+										Премиум <span>(3)</span>
+									</option>
+									<option value="7" data-tabs="tea">
+										Чай безалкогольный <span>(6)</span>
+									</option>
+								</select>
+								<div data-da=".block-catalog__body, 992, last" class="left-block-catalog__buttons">
+									<a href="#" data-goto-header data-goto=".block-forms"
+										class="btn btn-orange btn-goto">
+										<span>Получить оптовый прайс-лист</span>
+										<div class="btn-circle btn-circle-orange">
+											<svg aria-hidden="true" width="17" height="16">
+												<use xlink:href="img/sprite.svg#arrow1"></use>
+											</svg>
+										</div>
+									</a>
+									<a href="https://untappd.com/SteppeNwind" class="btn btn-orange">
+										<span>Смотреть все отзывы на Untappd</span>
+										<div class="btn-circle btn-circle-orange">
+											<svg aria-hidden="true" width="17" height="16">
+												<use xlink:href="img/sprite.svg#arrow1"></use>
+											</svg>
+										</div>
+									</a>
+								</div>
+							</div>
+							<div data-watch data-watch-once class="block-catalog__right right-block-catalog watch">
+								<div data-tabs="classic" class="right-block-catalog__tabs _tab-active">
+									<div class="right-block-catalog__navigation">
+										<div class="right-block-catalog__slider swiper">
+											<div class="right-block-catalog__wrapper swiper-wrapper">
+												<button type="button" data-product="1"
+													class="right-block-catalog__slide swiper-slide _active">
+													<img loading="lazy" src="img/products/image2.webp" alt="">
+												</button>
+												<button type="button" data-product="2"
+													class="right-block-catalog__slide swiper-slide">
+													<img loading="lazy" src="img/products/image16.webp" alt="">
+												</button>
+												<button type="button" data-product="3"
+													class="right-block-catalog__slide swiper-slide">
+													<img loading="lazy" src="img/products/image17.webp" alt="">
+												</button>
+											</div>
+										</div>
+										<div
+											class="right-block-catalog__arrow-prev btn-circle btn-circle-orange arrow-prev">
+											<svg aria-hidden="true" width="7" height="12">
+												<use xlink:href="img/sprite.svg#arrow2"></use>
+											</svg>
+										</div>
+										<div
+											class="right-block-catalog__arrow-next btn-circle btn-circle-orange arrow-next">
+											<svg aria-hidden="true" width="7" height="12">
+												<use xlink:href="img/sprite.svg#arrow2"></use>
+											</svg>
+										</div>
+									</div>
+									<div class="right-block-catalog__content">
+										<a href="#" data-product="1" class="right-block-catalog__body _active">
+											<div class="right-block-catalog__item item-right-catalog">
+												<div class="item-right-catalog__body">
+													<div class="item-right-catalog__titles">
+														<div class="item-right-catalog__title">
+															Traditional mead <span>/ Classic</span>
+														</div>
+														<p>
+															Традиционный базовый мид. В составе только мёд, вода и
+															винные дрожжи. Отличный вариант для ценителей классики или
+															знакомства с миром мидов.
+														</p>
+													</div>
+													<ul>
+														<li>ABV 4,5%</li>
+														<li>Банка 0,33 л</li>
+														<li>Кег 20 л</li>
+													</ul>
+												</div>
+												<div class="item-right-catalog__image">
+													<img loading="lazy" src="img/products/image2.webp" alt="">
+												</div>
+												<div class="btn-circle btn-circle-orange">
+													<svg aria-hidden="true" width="26" height="21">
+														<use xlink:href="img/sprite.svg#rutube"></use>
+													</svg>
+												</div>
+											</div>
+										</a>
+										<a href="#" data-product="2" class="right-block-catalog__body">
+											<div class="right-block-catalog__item item-right-catalog">
+												<div class="item-right-catalog__body">
+													<div class="item-right-catalog__titles">
+														<div class="item-right-catalog__title">
+															Tonic mead <span>/ Classic</span>
+														</div>
+														<p>
+															Классический мид с добавлением экстракта хинного дерева для
+															благородной горчинки, и лимонной цедры для глубины вкуса и
+															мягкости. Отличный вариант для приготовления коктейлей.
+														</p>
+													</div>
+													<ul>
+														<li>ABV 4,5%</li>
+														<li>Банка 0,33 л</li>
+														<li>Кег 20 л</li>
+													</ul>
+												</div>
+												<div class="item-right-catalog__image">
+													<img loading="lazy" src="img/products/image16.webp" alt="">
+												</div>
+												<div class="btn-circle btn-circle-orange">
+													<svg aria-hidden="true" width="26" height="21">
+														<use xlink:href="img/sprite.svg#rutube"></use>
+													</svg>
+												</div>
+											</div>
+										</a>
+										<a href="#" data-product="3" class="right-block-catalog__body">
+											<div class="right-block-catalog__item item-right-catalog">
+												<div class="item-right-catalog__body">
+													<div class="item-right-catalog__titles">
+														<div class="item-right-catalog__title">
+															Hoppy mead <span>/ Classic</span>
+														</div>
+														<p>
+															Охмеленная версия базового мида из цветочного мёда,
+															сброженного с дубовой щепой. Медовуха, как она есть, но
+															теперь охмеленная! Наше видение баланса в угоду питкости и
+															умеренной цены.
+														</p>
+													</div>
+													<ul>
+														<li>ABV 4,5%</li>
+														<li>Банка 0,33 л</li>
+														<li>Кег 20 л</li>
+													</ul>
+												</div>
+												<div class="item-right-catalog__image">
+													<img loading="lazy" src="img/products/image17.webp" alt="">
+												</div>
+												<div class="btn-circle btn-circle-orange">
+													<svg aria-hidden="true" width="26" height="21">
+														<use xlink:href="img/sprite.svg#rutube"></use>
+													</svg>
+												</div>
+											</div>
+										</a>
+									</div>
+								</div>
+								<div data-tabs="melomel" class="right-block-catalog__tabs">
+									<div class="right-block-catalog__navigation">
+										<div class="right-block-catalog__slider swiper">
+											<div class="right-block-catalog__wrapper swiper-wrapper">
+												<button type="button" data-product="1"
+													class="right-block-catalog__slide swiper-slide _active">
+													<img loading="lazy" src="img/products/image18.webp" alt="">
+												</button>
+												<button type="button" data-product="2"
+													class="right-block-catalog__slide swiper-slide">
+													<img loading="lazy" src="img/products/image19.webp" alt="">
+												</button>
+												<button type="button" data-product="3"
+													class="right-block-catalog__slide swiper-slide">
+													<img loading="lazy" src="img/products/image20.webp" alt="">
+												</button>
+												<button type="button" data-product="4"
+													class="right-block-catalog__slide swiper-slide">
+													<img loading="lazy" src="img/products/image21.webp" alt="">
+												</button>
+											</div>
+										</div>
+										<div
+											class="right-block-catalog__arrow-prev btn-circle btn-circle-orange arrow-prev">
+											<svg aria-hidden="true" width="7" height="12">
+												<use xlink:href="img/sprite.svg#arrow2"></use>
+											</svg>
+										</div>
+										<div
+											class="right-block-catalog__arrow-next btn-circle btn-circle-orange arrow-next">
+											<svg aria-hidden="true" width="7" height="12">
+												<use xlink:href="img/sprite.svg#arrow2"></use>
+											</svg>
+										</div>
+									</div>
+									<div class="right-block-catalog__content">
+										<a href="#" data-product="1" class="right-block-catalog__body _active">
+											<div class="right-block-catalog__item item-right-catalog">
+												<div class="item-right-catalog__body">
+													<div class="item-right-catalog__titles">
+														<div class="item-right-catalog__title">
+															Cherry mead <span>/ Melomel</span>
+														</div>
+														<p>
+															Луговой мёд с вишнёвым соком. Более кислый сорт, чем
+															ежевика. Во вкусе ароматная насыщенная вишня.
+														</p>
+													</div>
+													<ul>
+														<li>ABV 6,0%</li>
+														<li>Банка 0,33 л</li>
+														<li>Кег 20 л</li>
+													</ul>
+												</div>
+												<div class="item-right-catalog__image">
+													<img loading="lazy" src="img/products/image18.webp" alt="">
+												</div>
+												<div class="btn-circle btn-circle-orange">
+													<svg aria-hidden="true" width="26" height="21">
+														<use xlink:href="img/sprite.svg#rutube"></use>
+													</svg>
+												</div>
+											</div>
+										</a>
+										<a href="#" data-product="2" class="right-block-catalog__body">
+											<div class="right-block-catalog__item item-right-catalog">
+												<div class="item-right-catalog__body">
+													<div class="item-right-catalog__titles">
+														<div class="item-right-catalog__title">
+															apricot mead <span>/ Melomel</span>
+														</div>
+														<p>
+															Луговой мёд с абрикосовым соком. Самый сладкий из линейки,
+															чуть тягучий. Во вкусе насыщенный яркий абрикос.
+														</p>
+													</div>
+													<ul>
+														<li>ABV 6,0%</li>
+														<li>Банка 0,33 л</li>
+														<li>Кег 20 л</li>
+													</ul>
+												</div>
+												<div class="item-right-catalog__image">
+													<img loading="lazy" src="img/products/image19.webp" alt="">
+												</div>
+												<div class="btn-circle btn-circle-orange">
+													<svg aria-hidden="true" width="26" height="21">
+														<use xlink:href="img/sprite.svg#rutube"></use>
+													</svg>
+												</div>
+											</div>
+										</a>
+										<a href="#" data-product="3" class="right-block-catalog__body">
+											<div class="right-block-catalog__item item-right-catalog">
+												<div class="item-right-catalog__body">
+													<div class="item-right-catalog__titles">
+														<div class="item-right-catalog__title">
+															Blackberry mead <span>/ Melomel</span>
+														</div>
+														<p>
+															Луговой мёд с ежевичным соком. Яркий терпкий вкус ежевики,
+															кисло-сладкий сорт с сухим финишем.
+														</p>
+													</div>
+													<ul>
+														<li>ABV 6,0%</li>
+														<li>Банка 0,33 л</li>
+														<li>Кег 20 л</li>
+													</ul>
+												</div>
+												<div class="item-right-catalog__image">
+													<img loading="lazy" src="img/products/image20.webp" alt="">
+												</div>
+												<div class="btn-circle btn-circle-orange">
+													<svg aria-hidden="true" width="26" height="21">
+														<use xlink:href="img/sprite.svg#rutube"></use>
+													</svg>
+												</div>
+											</div>
+										</a>
+										<a href="#" data-product="4" class="right-block-catalog__body">
+											<div class="right-block-catalog__item item-right-catalog">
+												<div class="item-right-catalog__body">
+													<div class="item-right-catalog__titles">
+														<div class="item-right-catalog__title">
+															Black сurrant mead <span>/ Melomel</span>
+														</div>
+														<p>
+															Луговой мёд с соком чёрной смородины, более сладкий, чем
+															ежевика или вишня. Сладость приятная, не приторная, очень
+															душистый сорт.
+														</p>
+													</div>
+													<ul>
+														<li>ABV 6,0%</li>
+														<li>Банка 0,33 л</li>
+														<li>Кег 20 л</li>
+													</ul>
+												</div>
+												<div class="item-right-catalog__image">
+													<img loading="lazy" src="img/products/image21.webp" alt="">
+												</div>
+												<div class="btn-circle btn-circle-orange">
+													<svg aria-hidden="true" width="26" height="21">
+														<use xlink:href="img/sprite.svg#rutube"></use>
+													</svg>
+												</div>
+											</div>
+										</a>
+									</div>
+								</div>
+								<div data-tabs="melomel2" class="right-block-catalog__tabs">
+									<div class="right-block-catalog__navigation">
+										<div class="right-block-catalog__slider swiper">
+											<div class="right-block-catalog__wrapper swiper-wrapper">
+												<button type="button" data-product="1"
+													class="right-block-catalog__slide swiper-slide _active">
+													<img loading="lazy" src="img/products/image22.webp" alt="">
+												</button>
+												<button type="button" data-product="2"
+													class="right-block-catalog__slide swiper-slide">
+													<img loading="lazy" src="img/products/image23.webp" alt="">
+												</button>
+												<button type="button" data-product="3"
+													class="right-block-catalog__slide swiper-slide">
+													<img loading="lazy" src="img/products/image24.webp" alt="">
+												</button>
+												<button type="button" data-product="4"
+													class="right-block-catalog__slide swiper-slide">
+													<img loading="lazy" src="img/products/image25.webp" alt="">
+												</button>
+												<button type="button" data-product="5"
+													class="right-block-catalog__slide swiper-slide">
+													<img loading="lazy" src="img/products/image26.webp" alt="">
+												</button>
+												<button type="button" data-product="6"
+													class="right-block-catalog__slide swiper-slide">
+													<img loading="lazy" src="img/products/image27.webp" alt="">
+												</button>
+												<button type="button" data-product="7"
+													class="right-block-catalog__slide swiper-slide">
+													<img loading="lazy" src="img/products/image28.webp" alt="">
+												</button>
+												<button type="button" data-product="8"
+													class="right-block-catalog__slide swiper-slide">
+													<img loading="lazy" src="img/products/image29.webp" alt="">
+												</button>
+											</div>
+										</div>
+										<div
+											class="right-block-catalog__arrow-prev btn-circle btn-circle-orange arrow-prev">
+											<svg aria-hidden="true" width="7" height="12">
+												<use xlink:href="img/sprite.svg#arrow2"></use>
+											</svg>
+										</div>
+										<div
+											class="right-block-catalog__arrow-next btn-circle btn-circle-orange arrow-next">
+											<svg aria-hidden="true" width="7" height="12">
+												<use xlink:href="img/sprite.svg#arrow2"></use>
+											</svg>
+										</div>
+									</div>
+									<div class="right-block-catalog__content">
+										<a href="#" data-product="1" class="right-block-catalog__body _active">
+											<div class="right-block-catalog__item item-right-catalog">
+												<div class="item-right-catalog__body">
+													<div class="item-right-catalog__titles">
+														<div class="item-right-catalog__title">
+															Сherry&chocolate mead <span>/ Classic</span>
+														</div>
+														<p>
+															Луговой мёд с вишневым соком и французским какао. Очень
+															терпкий, кисло-сладкий сорт с сухим финишем. Аромат дорогих
+															шоколадных конфет.
+														</p>
+													</div>
+													<ul>
+														<li>ABV 6,0%</li>
+														<li>Банка 0,33 л</li>
+														<li>Кег 20 л</li>
+													</ul>
+												</div>
+												<div class="item-right-catalog__image">
+													<img loading="lazy" src="img/products/image22.webp" alt="">
+												</div>
+												<div class="btn-circle btn-circle-orange">
+													<svg aria-hidden="true" width="26" height="21">
+														<use xlink:href="img/sprite.svg#rutube"></use>
+													</svg>
+												</div>
+											</div>
+										</a>
+										<a href="#" data-product="2" class="right-block-catalog__body">
+											<div class="right-block-catalog__item item-right-catalog">
+												<div class="item-right-catalog__body">
+													<div class="item-right-catalog__titles">
+														<div class="item-right-catalog__title">
+															Raspberry, mint & hops mead <span>/ Classic</span>
+														</div>
+														<p>
+															Луговой мёд с малиновым соком, перечной мятой и хмелем. Во
+															вкусе кисло-сладкая малина, освежающая мята и лёгкая
+															хмелевая горчинка.
+														</p>
+													</div>
+													<ul>
+														<li>ABV 6,0%</li>
+														<li>Банка 0,33 л</li>
+														<li>Кег 20 л</li>
+													</ul>
+												</div>
+												<div class="item-right-catalog__image">
+													<img loading="lazy" src="img/products/image23.webp" alt="">
+												</div>
+												<div class="btn-circle btn-circle-orange">
+													<svg aria-hidden="true" width="26" height="21">
+														<use xlink:href="img/sprite.svg#rutube"></use>
+													</svg>
+												</div>
+											</div>
+										</a>
+										<a href="#" data-product="3" class="right-block-catalog__body">
+											<div class="right-block-catalog__item item-right-catalog">
+												<div class="item-right-catalog__body">
+													<div class="item-right-catalog__titles">
+														<div class="item-right-catalog__title">
+															Grapefruit mead <span>/ Classic</span>
+														</div>
+														<p>
+															Луговой мёд с соком грейпфрута. Яркий цитрусовый вкус с
+															заметной грейпфрутовой горчинкой, практически не сладкий.
+														</p>
+													</div>
+													<ul>
+														<li>ABV 6,0%</li>
+														<li>Банка 0,33 л</li>
+														<li>Кег 20 л</li>
+													</ul>
+												</div>
+												<div class="item-right-catalog__image">
+													<img loading="lazy" src="img/products/image24.webp" alt="">
+												</div>
+												<div class="btn-circle btn-circle-orange">
+													<svg aria-hidden="true" width="26" height="21">
+														<use xlink:href="img/sprite.svg#rutube"></use>
+													</svg>
+												</div>
+											</div>
+										</a>
+										<a href="#" data-product="4" class="right-block-catalog__body">
+											<div class="right-block-catalog__item item-right-catalog">
+												<div class="item-right-catalog__body">
+													<div class="item-right-catalog__titles">
+														<div class="item-right-catalog__title">
+															Pear, lime & rosemary mead <span>/ Classic</span>
+														</div>
+														<p>
+															Луговой мёд с соком груши, лайма и розмарином. Во вкусе
+															сладкая груша, кислый лайм и пикантный розмарин. Летний
+															искрящийся сорт, похожий на шампанское.
+														</p>
+													</div>
+													<ul>
+														<li>ABV 6,0%</li>
+														<li>Банка 0,33 л</li>
+														<li>Кег 20 л</li>
+													</ul>
+												</div>
+												<div class="item-right-catalog__image">
+													<img loading="lazy" src="img/products/image25.webp" alt="">
+												</div>
+												<div class="btn-circle btn-circle-orange">
+													<svg aria-hidden="true" width="26" height="21">
+														<use xlink:href="img/sprite.svg#rutube"></use>
+													</svg>
+												</div>
+											</div>
+										</a>
+										<a href="#" data-product="5" class="right-block-catalog__body">
+											<div class="right-block-catalog__item item-right-catalog">
+												<div class="item-right-catalog__body">
+													<div class="item-right-catalog__titles">
+														<div class="item-right-catalog__title">
+															Melon & lemongrass mead <span>/ Classic</span>
+														</div>
+														<p>
+															Луговой мёд с соком дыни и лемонграссом. Во вкусе нежная
+															сладость дыни и цитрусовый акцент от лемонграсса. Наш
+															сезонный сорт, преимущественно разливаем в летний период.
+														</p>
+													</div>
+													<ul>
+														<li>ABV 6,0%</li>
+														<li>Банка 0,33 л</li>
+														<li>Кег 20 л</li>
+													</ul>
+												</div>
+												<div class="item-right-catalog__image">
+													<img loading="lazy" src="img/products/image26.webp" alt="">
+												</div>
+												<div class="btn-circle btn-circle-orange">
+													<svg aria-hidden="true" width="26" height="21">
+														<use xlink:href="img/sprite.svg#rutube"></use>
+													</svg>
+												</div>
+											</div>
+										</a>
+										<a href="#" data-product="6" class="right-block-catalog__body">
+											<div class="right-block-catalog__item item-right-catalog">
+												<div class="item-right-catalog__body">
+													<div class="item-right-catalog__titles">
+														<div class="item-right-catalog__title">
+															Tangerine lime rosemary mead <span>/ Classic</span>
+														</div>
+														<p>
+															Луговой мёд с соком мандарина, лаймом и розмарином. Яркий
+															цитрусовый микс с пикантным розмарином на послевкусии.
+														</p>
+													</div>
+													<ul>
+														<li>ABV 6,0%</li>
+														<li>Банка 0,33 л</li>
+														<li>Кег 20 л</li>
+													</ul>
+												</div>
+												<div class="item-right-catalog__image">
+													<img loading="lazy" src="img/products/image27.webp" alt="">
+												</div>
+												<div class="btn-circle btn-circle-orange">
+													<svg aria-hidden="true" width="26" height="21">
+														<use xlink:href="img/sprite.svg#rutube"></use>
+													</svg>
+												</div>
+											</div>
+										</a>
+										<a href="#" data-product="7" class="right-block-catalog__body">
+											<div class="right-block-catalog__item item-right-catalog">
+												<div class="item-right-catalog__body">
+													<div class="item-right-catalog__titles">
+														<div class="item-right-catalog__title">
+															Blueberry&vanila mead <span>/ Classic</span>
+														</div>
+														<p>
+															Луговой мёд с соком черники и экстрактом ванили. Насыщенный
+															ягодный профиль, на послевкусии сладкая кондитерская ваниль.
+														</p>
+													</div>
+													<ul>
+														<li>ABV 6,0%</li>
+														<li>Банка 0,33 л</li>
+														<li>Кег 20 л</li>
+													</ul>
+												</div>
+												<div class="item-right-catalog__image">
+													<img loading="lazy" src="img/products/image28.webp" alt="">
+												</div>
+												<div class="btn-circle btn-circle-orange">
+													<svg aria-hidden="true" width="26" height="21">
+														<use xlink:href="img/sprite.svg#rutube"></use>
+													</svg>
+												</div>
+											</div>
+										</a>
+										<a href="#" data-product="8" class="right-block-catalog__body">
+											<div class="right-block-catalog__item item-right-catalog">
+												<div class="item-right-catalog__body">
+													<div class="item-right-catalog__titles">
+														<div class="item-right-catalog__title">
+															Blueberry&vanila mead <span>/ Classic</span>
+														</div>
+														<p>
+															Луговой мёд с соком черники и экстрактом ванили. Насыщенный
+															ягодный профиль, на послевкусии сладкая кондитерская ваниль.
+														</p>
+													</div>
+													<ul>
+														<li>ABV 6,0%</li>
+														<li>Банка 0,33 л</li>
+														<li>Кег 20 л</li>
+													</ul>
+												</div>
+												<div class="item-right-catalog__image">
+													<img loading="lazy" src="img/products/image29.webp" alt="">
+												</div>
+												<div class="btn-circle btn-circle-orange">
+													<svg aria-hidden="true" width="26" height="21">
+														<use xlink:href="img/sprite.svg#rutube"></use>
+													</svg>
+												</div>
+											</div>
+										</a>
+									</div>
+								</div>
+								<div data-tabs="bochet" class="right-block-catalog__tabs">
+									<div class="right-block-catalog__navigation">
+										<div class="right-block-catalog__slider swiper">
+											<div class="right-block-catalog__wrapper swiper-wrapper">
+												<button type="button" data-product="1"
+													class="right-block-catalog__slide swiper-slide _active">
+													<img loading="lazy" src="img/products/image30.webp" alt="">
+												</button>
+												<button type="button" data-product="2"
+													class="right-block-catalog__slide swiper-slide">
+													<img loading="lazy" src="img/products/image31.webp" alt="">
+												</button>
+												<button type="button" data-product="3"
+													class="right-block-catalog__slide swiper-slide">
+													<img loading="lazy" src="img/products/image32.webp" alt="">
+												</button>
+											</div>
+										</div>
+										<div
+											class="right-block-catalog__arrow-prev btn-circle btn-circle-orange arrow-prev">
+											<svg aria-hidden="true" width="7" height="12">
+												<use xlink:href="img/sprite.svg#arrow2"></use>
+											</svg>
+										</div>
+										<div
+											class="right-block-catalog__arrow-next btn-circle btn-circle-orange arrow-next">
+											<svg aria-hidden="true" width="7" height="12">
+												<use xlink:href="img/sprite.svg#arrow2"></use>
+											</svg>
+										</div>
+									</div>
+									<div class="right-block-catalog__content">
+										<a href="#" data-product="1" class="right-block-catalog__body _active">
+											<div class="right-block-catalog__item item-right-catalog">
+												<div class="item-right-catalog__body">
+													<div class="item-right-catalog__titles">
+														<div class="item-right-catalog__title">
+															Blackberry, Black currant Bochet
+															<span> / Bochet</span>
+														</div>
+														<p>
+															Мид в стиле Bochet, с карамелизированным мёдом, соком чёрной
+															смородины и ежевики. Карамельную сладость удачно оттеняет
+															кислый ягодный микс.
+														</p>
+													</div>
+													<ul>
+														<li>ABV 6,0%</li>
+														<li>Банка 0,33 л</li>
+														<li>Кег 20 л</li>
+													</ul>
+												</div>
+												<div class="item-right-catalog__image">
+													<img loading="lazy" src="img/products/image30.webp" alt="">
+												</div>
+												<div class="btn-circle btn-circle-orange">
+													<svg aria-hidden="true" width="26" height="21">
+														<use xlink:href="img/sprite.svg#rutube"></use>
+													</svg>
+												</div>
+											</div>
+										</a>
+										<a href="#" data-product="2" class="right-block-catalog__body">
+											<div class="right-block-catalog__item item-right-catalog">
+												<div class="item-right-catalog__body">
+													<div class="item-right-catalog__titles">
+														<div class="item-right-catalog__title">
+															Raspberry & Blueberry Bochet
+															<span> / Bochet</span>
+														</div>
+														<p>
+															Мид в стиле Bochet, с карамелизированным мёдом, соком
+															черники и малины. В теле напитка яркий и терпкий ягодный
+															микс, на послевкусии карамельная сладость и чуть-чуть
+															горчинки.
+														</p>
+													</div>
+													<ul>
+														<li>ABV 6,0%</li>
+														<li>Банка 0,33 л</li>
+														<li>Кег 20 л</li>
+													</ul>
+												</div>
+												<div class="item-right-catalog__image">
+													<img loading="lazy" src="img/products/image31.webp" alt="">
+												</div>
+												<div class="btn-circle btn-circle-orange">
+													<svg aria-hidden="true" width="26" height="21">
+														<use xlink:href="img/sprite.svg#rutube"></use>
+													</svg>
+												</div>
+											</div>
+										</a>
+										<a href="#" data-product="3" class="right-block-catalog__body">
+											<div class="right-block-catalog__item item-right-catalog">
+												<div class="item-right-catalog__body">
+													<div class="item-right-catalog__titles">
+														<div class="item-right-catalog__title">
+															Pomegranate and Coriander bochet
+															<span> / Bochet</span>
+														</div>
+														<p>
+															Мид в стиле Bochet, с карамелизированным мёдом, соком
+															граната и кориандром. Во вкусе благородное сочетание
+															терпкого, чуть кислого граната и пряного кориандра.
+														</p>
+													</div>
+													<ul>
+														<li>ABV 6,0%</li>
+														<li>Банка 0,33 л</li>
+														<li>Кег 20 л</li>
+													</ul>
+												</div>
+												<div class="item-right-catalog__image">
+													<img loading="lazy" src="img/products/image32.webp" alt="">
+												</div>
+												<div class="btn-circle btn-circle-orange">
+													<svg aria-hidden="true" width="26" height="21">
+														<use xlink:href="img/sprite.svg#rutube"></use>
+													</svg>
+												</div>
+											</div>
+										</a>
+									</div>
+								</div>
+								<div data-tabs="weird" class="right-block-catalog__tabs">
+									<div class="right-block-catalog__navigation">
+										<div class="right-block-catalog__slider swiper">
+											<div class="right-block-catalog__wrapper swiper-wrapper">
+												<button type="button" data-product="1"
+													class="right-block-catalog__slide swiper-slide _active">
+													<img loading="lazy" src="img/products/image33.webp" alt="">
+												</button>
+												<button type="button" data-product="2"
+													class="right-block-catalog__slide swiper-slide">
+													<img loading="lazy" src="img/products/image34.webp" alt="">
+												</button>
+												<button type="button" data-product="3"
+													class="right-block-catalog__slide swiper-slide">
+													<img loading="lazy" src="img/products/image35.webp" alt="">
+												</button>
+												<button type="button" data-product="4"
+													class="right-block-catalog__slide swiper-slide">
+													<img loading="lazy" src="img/products/image36.webp" alt="">
+												</button>
+												<button type="button" data-product="5"
+													class="right-block-catalog__slide swiper-slide">
+													<img loading="lazy" src="img/products/image37.webp" alt="">
+												</button>
+											</div>
+										</div>
+										<div
+											class="right-block-catalog__arrow-prev btn-circle btn-circle-orange arrow-prev">
+											<svg aria-hidden="true" width="7" height="12">
+												<use xlink:href="img/sprite.svg#arrow2"></use>
+											</svg>
+										</div>
+										<div
+											class="right-block-catalog__arrow-next btn-circle btn-circle-orange arrow-next">
+											<svg aria-hidden="true" width="7" height="12">
+												<use xlink:href="img/sprite.svg#arrow2"></use>
+											</svg>
+										</div>
+									</div>
+									<div class="right-block-catalog__content">
+										<a href="#" data-product="1" class="right-block-catalog__body _active">
+											<div class="right-block-catalog__item item-right-catalog">
+												<div class="item-right-catalog__body">
+													<div class="item-right-catalog__titles">
+														<div class="item-right-catalog__title">
+															Smoothie mead: strawberry, banana, cranberry <span>/ Weird
+																Mead</span>
+														</div>
+														<p>
+															Насыщенный мид из топового сочетания сладкого банана и
+															сочной клубники. Интересную ноту придаёт терпкая кислая
+															клюква. Приятный напиток с плотной текстурой и мягким
+															вкусом.
+														</p>
+													</div>
+													<ul>
+														<li>ABV 6,0%</li>
+														<li>Банка 0,33 л</li>
+														<li>Кег 20 л</li>
+													</ul>
+												</div>
+												<div class="item-right-catalog__image">
+													<img loading="lazy" src="img/products/image33.webp" alt="">
+												</div>
+												<div class="btn-circle btn-circle-orange">
+													<svg aria-hidden="true" width="26" height="21">
+														<use xlink:href="img/sprite.svg#rutube"></use>
+													</svg>
+												</div>
+											</div>
+										</a>
+										<a href="#" data-product="2" class="right-block-catalog__body">
+											<div class="right-block-catalog__item item-right-catalog">
+												<div class="item-right-catalog__body">
+													<div class="item-right-catalog__titles">
+														<div class="item-right-catalog__title">
+															Smoothie mead: blueberry, banana, vanila <span>/ Weird
+																Mead</span>
+														</div>
+														<p>
+															Смузи мёд с бананом, черникой и ванилью. В напитке
+															чувствуется приятная сладость банана с ярким ягодным вкусом
+															черники и ароматная ваниль. Напоминает известный десерт -
+															черничный чизкейк.
+														</p>
+													</div>
+													<ul>
+														<li>ABV 6,0%</li>
+														<li>Банка 0,33 л</li>
+														<li>Кег 20 л</li>
+													</ul>
+												</div>
+												<div class="item-right-catalog__image">
+													<img loading="lazy" src="img/products/image34.webp" alt="">
+												</div>
+												<div class="btn-circle btn-circle-orange">
+													<svg aria-hidden="true" width="26" height="21">
+														<use xlink:href="img/sprite.svg#rutube"></use>
+													</svg>
+												</div>
+											</div>
+										</a>
+										<a href="#" data-product="3" class="right-block-catalog__body">
+											<div class="right-block-catalog__item item-right-catalog">
+												<div class="item-right-catalog__body">
+													<div class="item-right-catalog__titles">
+														<div class="item-right-catalog__title">
+															Smoothie Mead: Mango, Orange <span>/ Weird
+																Mead</span>
+														</div>
+														<p>
+															Плотный смузи мид с добавлением пюре манго и апельсинового
+															сока. Яркое тропическое сочетание плотного сладкого манго и
+															кислинки сочного апельсина. Мягкий напиток, без явной
+															алкогольной ноты.
+														</p>
+													</div>
+													<ul>
+														<li>ABV 6,0%</li>
+														<li>Банка 0,33 л</li>
+														<li>Кег 20 л</li>
+													</ul>
+												</div>
+												<div class="item-right-catalog__image">
+													<img loading="lazy" src="img/products/image36.webp" alt="">
+												</div>
+												<div class="btn-circle btn-circle-orange">
+													<svg aria-hidden="true" width="26" height="21">
+														<use xlink:href="img/sprite.svg#rutube"></use>
+													</svg>
+												</div>
+											</div>
+										</a>
+										<a href="#" data-product="4" class="right-block-catalog__body">
+											<div class="right-block-catalog__item item-right-catalog">
+												<div class="item-right-catalog__body">
+													<div class="item-right-catalog__titles">
+														<div class="item-right-catalog__title">
+															Smoothie Mead: Raspberry, Black Currant, Mint <span>/ Weird
+																Mead</span>
+														</div>
+														<p>
+															Смузи мёд с малиной, чёрной смородиной и мятой. Менее
+															плотный напиток из-за более нежной структуры ягодных пюре.
+															Малина добавляет сладости, смородина интересную терпкость с
+															кислинкой, а на послевкусии освежающая мята. Насыщенный
+															ягодный смузи.
+														</p>
+													</div>
+													<ul>
+														<li>ABV 6,0%</li>
+														<li>Банка 0,33 л</li>
+														<li>Кег 20 л</li>
+													</ul>
+												</div>
+												<div class="item-right-catalog__image">
+													<img loading="lazy" src="img/products/image37.webp" alt="">
+												</div>
+												<div class="btn-circle btn-circle-orange">
+													<svg aria-hidden="true" width="26" height="21">
+														<use xlink:href="img/sprite.svg#rutube"></use>
+													</svg>
+												</div>
+											</div>
+										</a>
+										<a href="#" data-product="5" class="right-block-catalog__body">
+											<div class="right-block-catalog__item item-right-catalog">
+												<div class="item-right-catalog__body">
+													<div class="item-right-catalog__titles">
+														<div class="item-right-catalog__title">
+															Smoothie Mead: Grapefruit, Strawberry & Mint <span>/ Weird
+																Mead</span>
+														</div>
+														<p>
+															Смузи мид с более лёгкой текстурой, с добавлением
+															грейпфрута, клубники и мяты. Клубника отдаёт напитку свою
+															сладость, грейпфрут терпкость и цитрусовую горчинку, а мята
+															добавляет заметный освежающий акцент.
+														</p>
+													</div>
+													<ul>
+														<li>ABV 6,0%</li>
+														<li>Банка 0,33 л</li>
+														<li>Кег 20 л</li>
+													</ul>
+												</div>
+												<div class="item-right-catalog__image">
+													<img loading="lazy" src="img/products/image38.webp" alt="">
+												</div>
+												<div class="btn-circle btn-circle-orange">
+													<svg aria-hidden="true" width="26" height="21">
+														<use xlink:href="img/sprite.svg#rutube"></use>
+													</svg>
+												</div>
+											</div>
+										</a>
+									</div>
+								</div>
+								<div data-tabs="melomel3" class="right-block-catalog__tabs">
+									<div class="right-block-catalog__navigation">
+										<div class="right-block-catalog__slider swiper">
+											<div class="right-block-catalog__wrapper swiper-wrapper">
+												<button type="button" data-product="1"
+													class="right-block-catalog__slide swiper-slide _active">
+													<img loading="lazy" src="img/products/image38.webp" alt="">
+												</button>
+												<button type="button" data-product="2"
+													class="right-block-catalog__slide swiper-slide">
+													<img loading="lazy" src="img/products/image39.webp" alt="">
+												</button>
+												<button type="button" data-product="3"
+													class="right-block-catalog__slide swiper-slide">
+													<img loading="lazy" src="img/products/image40.webp" alt="">
+												</button>
+											</div>
+										</div>
+										<div
+											class="right-block-catalog__arrow-prev btn-circle btn-circle-orange arrow-prev">
+											<svg aria-hidden="true" width="7" height="12">
+												<use xlink:href="img/sprite.svg#arrow2"></use>
+											</svg>
+										</div>
+										<div
+											class="right-block-catalog__arrow-next btn-circle btn-circle-orange arrow-next">
+											<svg aria-hidden="true" width="7" height="12">
+												<use xlink:href="img/sprite.svg#arrow2"></use>
+											</svg>
+										</div>
+									</div>
+									<div class="right-block-catalog__content">
+										<a href="#" data-product="1" class="right-block-catalog__body _active">
+											<div class="right-block-catalog__item item-right-catalog">
+												<div class="item-right-catalog__body">
+													<div class="item-right-catalog__titles">
+														<div class="item-right-catalog__title">
+															strawberry & rhubarb Mead <span>/ Melomel</span>
+														</div>
+														<p>
+															Луговой мёд с малиновым соком, перечной мятой и хмелем. Во
+															вкусе кисло-сладкая малина, освежающая мята и лёгкая
+															хмелевая горчинка.
+														</p>
+													</div>
+													<ul>
+														<li>ABV 12,0%</li>
+														<li>Банка 0,33 л</li>
+														<li>Кег 20 л</li>
+													</ul>
+												</div>
+												<div class="item-right-catalog__image">
+													<img loading="lazy" src="img/products/image38.webp" alt="">
+												</div>
+												<div class="btn-circle btn-circle-orange">
+													<svg aria-hidden="true" width="26" height="21">
+														<use xlink:href="img/sprite.svg#rutube"></use>
+													</svg>
+												</div>
+											</div>
+										</a>
+										<a href="#" data-product="2" class="right-block-catalog__body">
+											<div class="right-block-catalog__item item-right-catalog">
+												<div class="item-right-catalog__body">
+													<div class="item-right-catalog__titles">
+														<div class="item-right-catalog__title">
+															blackcurrant & mint Mead <span>/ Melomel</span>
+														</div>
+														<p>
+															Луговой мёд с малиновым соком, перечной мятой и хмелем. Во
+															вкусе кисло-сладкая малина, освежающая мята и лёгкая
+															хмелевая горчинка.
+														</p>
+													</div>
+													<ul>
+														<li>ABV 12,0%</li>
+														<li>Банка 0,33 л</li>
+														<li>Кег 20 л</li>
+													</ul>
+												</div>
+												<div class="item-right-catalog__image">
+													<img loading="lazy" src="img/products/image39.webp" alt="">
+												</div>
+												<div class="btn-circle btn-circle-orange">
+													<svg aria-hidden="true" width="26" height="21">
+														<use xlink:href="img/sprite.svg#rutube"></use>
+													</svg>
+												</div>
+											</div>
+										</a>
+										<a href="#" data-product="3" class="right-block-catalog__body">
+											<div class="right-block-catalog__item item-right-catalog">
+												<div class="item-right-catalog__body">
+													<div class="item-right-catalog__titles">
+														<div class="item-right-catalog__title">
+															cherry & cinnamon Mead <span>/ Melomel</span>
+														</div>
+														<p>
+															Луговой мёд с малиновым соком, перечной мятой и хмелем. Во
+															вкусе кисло-сладкая малина, освежающая мята и лёгкая
+															хмелевая горчинка.
+														</p>
+													</div>
+													<ul>
+														<li>ABV 12,0%</li>
+														<li>Банка 0,33 л</li>
+														<li>Кег 20 л</li>
+													</ul>
+												</div>
+												<div class="item-right-catalog__image">
+													<img loading="lazy" src="img/products/image40.webp" alt="">
+												</div>
+												<div class="btn-circle btn-circle-orange">
+													<svg aria-hidden="true" width="26" height="21">
+														<use xlink:href="img/sprite.svg#rutube"></use>
+													</svg>
+												</div>
+											</div>
+										</a>
+									</div>
+								</div>
+								<div data-tabs="tea" class="right-block-catalog__tabs">
+									<div class="right-block-catalog__navigation">
+										<div class="right-block-catalog__slider swiper">
+											<div class="right-block-catalog__wrapper swiper-wrapper">
+												<button type="button" data-product="1"
+													class="right-block-catalog__slide swiper-slide _active">
+													<img loading="lazy" src="img/products/image41.webp" alt="">
+												</button>
+												<button type="button" data-product="2"
+													class="right-block-catalog__slide swiper-slide">
+													<img loading="lazy" src="img/products/image42.webp" alt="">
+												</button>
+												<button type="button" data-product="3"
+													class="right-block-catalog__slide swiper-slide">
+													<img loading="lazy" src="img/products/image43.webp" alt="">
+												</button>
+												<button type="button" data-product="4"
+													class="right-block-catalog__slide swiper-slide">
+													<img loading="lazy" src="img/products/image44.webp" alt="">
+												</button>
+												<button type="button" data-product="5"
+													class="right-block-catalog__slide swiper-slide">
+													<img loading="lazy" src="img/products/image45.webp" alt="">
+												</button>
+												<button type="button" data-product="6"
+													class="right-block-catalog__slide swiper-slide">
+													<img loading="lazy" src="img/products/image46.webp" alt="">
+												</button>
+											</div>
+										</div>
+										<div
+											class="right-block-catalog__arrow-prev btn-circle btn-circle-orange arrow-prev">
+											<svg aria-hidden="true" width="7" height="12">
+												<use xlink:href="img/sprite.svg#arrow2"></use>
+											</svg>
+										</div>
+										<div
+											class="right-block-catalog__arrow-next btn-circle btn-circle-orange arrow-next">
+											<svg aria-hidden="true" width="7" height="12">
+												<use xlink:href="img/sprite.svg#arrow2"></use>
+											</svg>
+										</div>
+									</div>
+									<div class="right-block-catalog__content">
+										<a href="#" data-product="1" class="right-block-catalog__body _active">
+											<div class="right-block-catalog__item item-right-catalog">
+												<div class="item-right-catalog__body">
+													<div class="item-right-catalog__titles">
+														<div class="item-right-catalog__title">
+															Конопляный чай с Айвой <span>/ tea</span>
+														</div>
+														<p>
+															Твой чай для спокойствия: снимает тревогу, улучшает
+															пищеварение, помогает заснуть. Не суетись, всё
+															хорошо.
+														</p>
+													</div>
+													<ul>
+														<li>ABV 0%</li>
+														<li>Банка 0,33 л</li>
+														<li>Кег 20 л</li>
+													</ul>
+												</div>
+												<div class="item-right-catalog__image">
+													<img loading="lazy" src="img/products/image41.webp" alt="">
+												</div>
+												<div class="btn-circle btn-circle-orange">
+													<svg aria-hidden="true" width="26" height="21">
+														<use xlink:href="img/sprite.svg#rutube"></use>
+													</svg>
+												</div>
+											</div>
+										</a>
+										<a href="#" data-product="2" class="right-block-catalog__body">
+											<div class="right-block-catalog__item item-right-catalog">
+												<div class="item-right-catalog__body">
+													<div class="item-right-catalog__titles">
+														<div class="item-right-catalog__title">
+															Шен Пуэр, Белый Грейпфрут <span>/ tea</span>
+														</div>
+														<p>
+															Твой чай для активности:
+															бодрит и повышает настроение и работоспособность, заряжает тело энергией.
+															Сегодня лучший день чтобы свернуть горы.
+														</p>
+													</div>
+													<ul>
+														<li>ABV 0%</li>
+														<li>Банка 0,33 л</li>
+														<li>Кег 20 л</li>
+													</ul>
+												</div>
+												<div class="item-right-catalog__image">
+													<img loading="lazy" src="img/products/image42.webp" alt="">
+												</div>
+												<div class="btn-circle btn-circle-orange">
+													<svg aria-hidden="true" width="26" height="21">
+														<use xlink:href="img/sprite.svg#rutube"></use>
+													</svg>
+												</div>
+											</div>
+										</a>
+										<a href="#" data-product="3" class="right-block-catalog__body">
+											<div class="right-block-catalog__item item-right-catalog">
+												<div class="item-right-catalog__body">
+													<div class="item-right-catalog__titles">
+														<div class="item-right-catalog__title">
+															Чай Шу Пуэр, Малина, Гранат <span>/ tea</span>
+														</div>
+														<p>
+															Твой чай для повышения внимания: устраняет сонливость, снимает напряжение и улучшает мозговую
+															деятельность. Планируй дела – время их выполнять.
+														</p>
+													</div>
+													<ul>
+														<li>ABV 0%</li>
+														<li>Банка 0,33 л</li>
+														<li>Кег 20 л</li>
+													</ul>
+												</div>
+												<div class="item-right-catalog__image">
+													<img loading="lazy" src="img/products/image43.webp" alt="">
+												</div>
+												<div class="btn-circle btn-circle-orange">
+													<svg aria-hidden="true" width="26" height="21">
+														<use xlink:href="img/sprite.svg#rutube"></use>
+													</svg>
+												</div>
+											</div>
+										</a>
+										<a href="#" data-product="4" class="right-block-catalog__body">
+											<div class="right-block-catalog__item item-right-catalog">
+												<div class="item-right-catalog__body">
+													<div class="item-right-catalog__titles">
+														<div class="item-right-catalog__title">
+															Конопляный чай с Шиповником <span>/ tea</span>
+														</div>
+														<p>
+															Твой чай от стресса: успокаивает, снимает напряжение,
+															позволяет сосредоточиться. У тебя всё под уонтролем. 
+														</p>
+													</div>
+													<ul>
+														<li>ABV 0%</li>
+														<li>Банка 0,33 л</li>
+														<li>Кег 20 л</li>
+													</ul>
+												</div>
+												<div class="item-right-catalog__image">
+													<img loading="lazy" src="img/products/image44.webp" alt="">
+												</div>
+												<div class="btn-circle btn-circle-orange">
+													<svg aria-hidden="true" width="26" height="21">
+														<use xlink:href="img/sprite.svg#rutube"></use>
+													</svg>
+												</div>
+											</div>
+										</a>
+										<a href="#" data-product="5" class="right-block-catalog__body">
+											<div class="right-block-catalog__item item-right-catalog">
+												<div class="item-right-catalog__body">
+													<div class="item-right-catalog__titles">
+														<div class="item-right-catalog__title">
+															Ромашковый чай, Груша, Лайм <span>/ tea</span>
+														</div>
+														<p>
+															Твой чай для отдыха: снимает тревогу, улучшает пище
+															варение, помогает заснуть. Расслабься и наслаждайся
+															моментом.
+														</p>
+													</div>
+													<ul>
+														<li>ABV 0%</li>
+														<li>Банка 0,33 л</li>
+														<li>Кег 20 л</li>
+													</ul>
+												</div>
+												<div class="item-right-catalog__image">
+													<img loading="lazy" src="img/products/image45.webp" alt="">
+												</div>
+												<div class="btn-circle btn-circle-orange">
+													<svg aria-hidden="true" width="26" height="21">
+														<use xlink:href="img/sprite.svg#rutube"></use>
+													</svg>
+												</div>
+											</div>
+										</a>
+										<a href="#" data-product="6" class="right-block-catalog__body">
+											<div class="right-block-catalog__item item-right-catalog">
+												<div class="item-right-catalog__body">
+													<div class="item-right-catalog__titles">
+														<div class="item-right-catalog__title">
+															Чай Габа, Абрикос, Мята <span>/ tea</span>
+														</div>
+														<p>
+															Твой чай для энергии: освежает, бодрит, повышает внимание.
+															Тебя не остановить. 
+														</p>
+													</div>
+													<ul>
+														<li>ABV 0%</li>
+														<li>Банка 0,33 л</li>
+														<li>Кег 20 л</li>
+													</ul>
+												</div>
+												<div class="item-right-catalog__image">
+													<img loading="lazy" src="img/products/image46.webp" alt="">
+												</div>
+												<div class="btn-circle btn-circle-orange">
+													<svg aria-hidden="true" width="26" height="21">
+														<use xlink:href="img/sprite.svg#rutube"></use>
+													</svg>
+												</div>
+											</div>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="block-collaborations block1">
+				<div class="container">
+					<div data-watch data-watch-once class="block-collaborations__content watch">
+						<div class="block-collaborations__left">
+							<div class="block-collaborations__titles">
+								<h2 class="title2">
+									Лимитированные сорта, коллаборации и эксперименты
+								</h2>
+								<p>
+									Разрабатываем новые рецепты и выпускаем лимитированные и премиальные партии.
+									Совместно с партнёрами выпускаем сорта, объединяющие наш опыт и творческое начало.
+								</p>
+							</div>
+							<a data-da=".block-collaborations__content, 992, last" href="https://t.me/stepiveter"
+								class="btn btn-orange">
+								<span>Следить за нами в Telegram</span>
+								<div class="btn-circle btn-circle-orange">
+									<svg aria-hidden="true" width="17" height="16">
+										<use xlink:href="img/sprite.svg#arrow1"></use>
+									</svg>
+								</div>
+							</a>
+						</div>
+						<div class="block-collaborations__right">
+							<div class="block-collaborations__slider swiper">
+								<div class="block-collaborations__wrapper swiper-wrapper">
+									<div class="block-collaborations__slide slide-block-collaborations swiper-slide">
+										<a href="#" data-popup="#video" data-popup-youtube="OAd3OP2xhF4"
+											class="slide-block-collaborations__image collaborations-video">
+											<img loading="lazy" src="img/image26.webp" alt="">
+											<div class="btn-circle btn-circle-orange">
+												<svg aria-hidden="true" width="16" height="18">
+													<use xlink:href="img/sprite.svg#play"></use>
+												</svg>
+											</div>
+										</a>
+										<div class="slide-block-collaborations__item">
+											<div class="slide-block-collaborations__title">
+												Lingonberry & Rhubarb Mead
+											</div>
+											<ul>
+												<li>Коллаборация с тюменскими пабами “Ермолаевъ”</li>
+												<li>
+													Брусника даёт ровно то, чего от неё ждёшь: резкую, честную кислоту.
+													Хмеля много, крутит ноту до щелчка в челюсти. Ревень — зелёный и
+													хрусткий — отвечает за танинность.
+												</li>
+											</ul>
+										</div>
+									</div>
+									<div class="block-collaborations__slide slide-block-collaborations swiper-slide">
+										<div class="slide-block-collaborations__image">
+											<img loading="lazy" src="img/image26.webp" alt="">
+										</div>
+										<div class="slide-block-collaborations__item">
+											<div class="slide-block-collaborations__title">
+												Lingonberry & Rhubarb Mead
+											</div>
+											<ul>
+												<li>Коллаборация с тюменскими пабами “Ермолаевъ”</li>
+												<li>
+													Брусника даёт ровно то, чего от неё ждёшь: резкую, честную кислоту.
+													Хмеля много, крутит ноту до щелчка в челюсти. Ревень — зелёный и
+													хрусткий — отвечает за танинность.
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="block-collaborations__arrows">
+								<div class="block-collaborations__arrow-prev btn-circle btn-circle-orange arrow-prev">
+									<svg aria-hidden="true" width="7" height="12">
+										<use xlink:href="img/sprite.svg#arrow2"></use>
+									</svg>
+								</div>
+								<div class="block-collaborations__arrow-next btn-circle btn-circle-orange arrow-next">
+									<svg aria-hidden="true" width="7" height="12">
+										<use xlink:href="img/sprite.svg#arrow2"></use>
+									</svg>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="block-forms block1">
+				<div class="container">
+					<div data-watch data-watch-once class="block-forms__content watch">
+						<form data-dev data-popup-message="#thanks" action="#">
+							<div class="block-forms__top">
+								<h2 class="title2">
+									Подпишись на рассылку и получи прайс-лист
+								</h2>
+								<ul>
+									<li>Новые вкусы и лимитированные сорта</li>
+									<li>Новости и события</li>
+								</ul>
+							</div>
+							<div class="block-forms__bottom">
+								<div class="block-forms__inputs">
+									<div class="block-forms__input">
+										<input data-required autocomplete="off" type="text" name="form[]"
+											placeholder="Введите имя">
+										<div class="block-forms__placeholder">
+											Ваше имя <span>*</span>
+										</div>
+									</div>
+									<div class="block-forms__input">
+										<input data-required autocomplete="off" type="text" name="form[]"
+											placeholder="Введите E-mail">
+										<div class="block-forms__placeholder">
+											E-mail <span>*</span>
+										</div>
+									</div>
+								</div>
+								<button type="submit" class="btn btn-orange">Получить</button>
+							</div>
+							<div class="checkboxes">
+								<div class="checkbox">
+									<input data-required id="c_1" class="checkbox__input" type="checkbox" value="1"
+										name="form[]">
+									<label for="c_1" class="checkbox__label">
+										<span class="checkbox__icon">
+											<svg aria-hidden="true" width="15" height="12">
+												<use xlink:href="img/sprite.svg#chek1"></use>
+											</svg>
+										</span>
+										<span class="checkbox__text">Я согласен
+											получать информационную и рекламную рассылки</span>
+									</label>
+								</div>
+								<div class="checkbox">
+									<input data-required id="c_2" class="checkbox__input" type="checkbox" value="1"
+										name="form[]">
+									<label for="c_2" class="checkbox__label">
+										<span class="checkbox__icon">
+											<svg aria-hidden="true" width="15" height="12">
+												<use xlink:href="img/sprite.svg#chek1"></use>
+											</svg>
+										</span>
+										<span class="checkbox__text">
+											Даю <a href="#" target="_blank">согласие</a> на обработку моих персональных
+											данных в
+											соответствии с
+											<a href="#" target="_blank">политикой обработки персональных данных</a>
+										</span>
+									</label>
+								</div>
+							</div>
+						</form>
+						<div class="block-forms__right">
+							<div class="block-forms__columns">
+								<div class="block-forms__column">
+									<img loading="lazy" src="img/products/image1.webp" alt="">
+								</div>
+								<div class="block-forms__column">
+									<img loading="lazy" src="img/products/image2.webp" alt="">
+								</div>
+								<div class="block-forms__column">
+									<img loading="lazy" src="img/products/image3.webp" alt="">
+								</div>
+								<div class="block-forms__column">
+									<img loading="lazy" src="img/products/image4.webp" alt="">
+								</div>
+							</div>
+							<div class="block-forms__columns">
+								<div class="block-forms__column">
+									<img loading="lazy" src="img/products/image5.webp" alt="">
+								</div>
+								<div class="block-forms__column">
+									<img loading="lazy" src="img/products/image6.webp" alt="">
+								</div>
+								<div class="block-forms__column">
+									<img loading="lazy" src="img/products/image7.webp" alt="">
+								</div>
+								<div class="block-forms__column">
+									<img loading="lazy" src="img/products/image8.webp" alt="">
+								</div>
+							</div>
+							<div class="block-forms__columns block-forms__columns--reverse">
+								<div class="block-forms__column">
+									<img loading="lazy" src="img/products/image9.webp" alt="">
+								</div>
+								<div class="block-forms__column">
+									<img loading="lazy" src="img/products/image10.webp" alt="">
+								</div>
+								<div class="block-forms__column">
+									<img loading="lazy" src="img/products/image11.webp" alt="">
+								</div>
+								<div class="block-forms__column">
+									<img loading="lazy" src="img/products/image12.webp" alt="">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</main>
+		{% include 'blocks/footer.njk' %}
+	</div>
+	{% include 'blocks/scripts.njk' %}
+	<div id="thanks" aria-hidden="true" class="popup">
+		<div class="popup__wrapper">
+			<div class="popup__content">
+				<div class="popup__body">
+					<div class="popup__top">
+						<div class="popup__title">
+							Подписка прошла успешно
+						</div>
+						<div data-close class="popup__close close">
+							<svg aria-hidden="true" width="16" height="16">
+								<use xlink:href="img/sprite.svg#close"></use>
+							</svg>
+						</div>
+					</div>
+					<p>
+						На указанную почту мы отправили приветственное письмо с оптовым прайсом.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="video" aria-hidden="true" class="popup video">
+		<div class="popup__wrapper">
+			<div class="popup__content">
+				<div class="popup__video"></div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
