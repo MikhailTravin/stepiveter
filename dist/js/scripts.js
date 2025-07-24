@@ -205,7 +205,7 @@ if (buttonContacts) {
 const header = document.querySelector('.header');
 if (header) {
   window.addEventListener('scroll', function () {
-    if (window.scrollY > 300) {
+    if (window.scrollY > 50) {
       header.classList.add('_header-scroll');
     } else {
       header.classList.remove('_header-scroll');
@@ -270,6 +270,123 @@ if (document.querySelector('.bottom-block-intro__slider')) {
   // Перепроверяем при изменении размера окна
   window.addEventListener('resize', initSwiper);
 }
+
+if (document.querySelector('.block-began__slider')) {
+  swiperBegan = new Swiper('.block-began__slider', {
+    observer: true,
+    observeParents: true,
+    slidesPerView: 1,
+    spaceBetween: 20,
+    speed: 400,
+    navigation: {
+      prevEl: '.block-began__arrow-prev',
+      nextEl: '.block-began__arrow-next',
+    },
+  });
+}
+
+if (document.querySelector('.block-distributors__slider')) {
+  swiperDistributors = new Swiper('.block-distributors__slider', {
+    observer: true,
+    observeParents: true,
+    slidesPerView: 2.5,
+    spaceBetween: 20,
+    speed: 400,
+    navigation: {
+      prevEl: '.block-distributors__arrow-prev',
+      nextEl: '.block-distributors__arrow-next',
+    },
+    breakpoints: {
+      0: {
+        slidesPerView: 1,
+      },
+      400: {
+        slidesPerView: 1.2,
+      },
+      480: {
+        slidesPerView: 1.5,
+      },
+      600: {
+        slidesPerView: 1.8,
+      },
+      768: {
+        slidesPerView: 2.2,
+      },
+      992: {
+        slidesPerView: 1.7,
+      },
+      1100: {
+        slidesPerView: 2,
+      },
+      1200: {
+        slidesPerView: 2.5,
+      },
+    },
+  });
+}
+
+if (document.querySelector('.block-collaborations__slider')) {
+  swiperCollaborations = new Swiper('.block-collaborations__slider', {
+    observer: true,
+    observeParents: true,
+    slidesPerView: 1,
+    spaceBetween: 30,
+    speed: 400,
+    navigation: {
+      prevEl: '.block-collaborations__arrow-prev',
+      nextEl: '.block-collaborations__arrow-next',
+    },
+  });
+}
+
+let swiperCatalogInstances = [];
+
+function initCatalogSlider(sliderElement) {
+  const swiperInstance = new Swiper(sliderElement, {
+    observer: true,
+    observeParents: true,
+    slidesPerView: 3,
+    spaceBetween: 20,
+    speed: 400,
+    navigation: {
+      prevEl: sliderElement.closest('.right-block-catalog__navigation').querySelector('.right-block-catalog__arrow-prev'),
+      nextEl: sliderElement.closest('.right-block-catalog__navigation').querySelector('.right-block-catalog__arrow-next'),
+    },
+    breakpoints: {
+      0: {
+        slidesPerView: 1,
+        spaceBetween: 15,
+      },
+      370: {
+        slidesPerView: 2,
+        spaceBetween: 10,
+      },
+      600: {
+        slidesPerView: 3,
+        spaceBetween: 10,
+      },
+      768: {
+        slidesPerView: 3,
+        spaceBetween: 20,
+      },
+      992: {
+        slidesPerView: 2,
+        spaceBetween: 30,
+      },
+      1200: {
+        slidesPerView: 3,
+        spaceBetween: 20,
+      },
+    },
+  });
+
+  swiperCatalogInstances.push(swiperInstance);
+  return swiperInstance;
+}
+document.querySelectorAll('.right-block-catalog__slider').forEach(sliderElement => {
+  initCatalogSlider(sliderElement);
+});
+
 
 //========================================================================================================================================================
 
@@ -413,7 +530,7 @@ class Popup {
           iframe.setAttribute("allow", `${autoplay}; encrypted-media`);
           iframe.setAttribute("src", urlVideo);
           if (!this.targetOpen.element.querySelector(`[${this.options.youtubePlaceAttribute}]`)) {
-            this.targetOpen.element.querySelector(".popup__text").setAttribute(`${this.options.youtubePlaceAttribute}`, "");
+            this.targetOpen.element.querySelector(".popup__video").setAttribute(`${this.options.youtubePlaceAttribute}`, "");
           }
           this.targetOpen.element.querySelector(`[${this.options.youtubePlaceAttribute}]`).appendChild(iframe);
         }
@@ -852,6 +969,106 @@ if (columns) {
 
 //========================================================================================================================================================
 
+//Прокрутка к блоку
+let gotoBlock = (targetBlock, noHeader = false, speed = 500, offsetTop = 0) => {
+  const targetBlockElement = document.querySelector(targetBlock);
+  if (targetBlockElement) {
+    let headerItem = '';
+    let headerItemHeight = 0;
+    if (noHeader) {
+      headerItem = 'header.header';
+      const headerElement = document.querySelector(headerItem);
+      if (!headerElement.classList.contains('_header-scroll')) {
+        headerElement.style.cssText = `transition-duration: 0s;`;
+        headerElement.classList.add('_header-scroll');
+        headerItemHeight = headerElement.offsetHeight;
+        headerElement.classList.remove('_header-scroll');
+        setTimeout(() => {
+          headerElement.style.cssText = ``;
+        }, 0);
+      } else {
+        headerItemHeight = headerElement.offsetHeight;
+      }
+    }
+    let options = {
+      speedAsDuration: true,
+      speed: speed,
+      header: headerItem,
+      offset: offsetTop,
+      easing: 'easeOutQuad',
+    };
+    // Закриваємо меню, якщо воно відкрите
+    document.documentElement.classList.contains("menu-open") ? menuClose() : null;
+
+    if (typeof SmoothScroll !== 'undefined') {
+      // Прокручування з використанням доповнення
+      new SmoothScroll().animateScroll(targetBlockElement, '', options);
+    } else {
+      // Прокручування стандартними засобами
+      let targetBlockElementPosition = targetBlockElement.getBoundingClientRect().top + scrollY;
+      targetBlockElementPosition = headerItemHeight ? targetBlockElementPosition - headerItemHeight : targetBlockElementPosition;
+      targetBlockElementPosition = offsetTop ? targetBlockElementPosition - offsetTop : targetBlockElementPosition;
+      window.scrollTo({
+        top: targetBlockElementPosition,
+        behavior: "smooth"
+      });
+    }
+  }
+};
+function pageNavigation() {
+  document.addEventListener("click", pageNavigationAction);
+  document.addEventListener("watcherCallback", pageNavigationAction);
+  function pageNavigationAction(e) {
+    if (e.type === "click") {
+      const targetElement = e.target;
+      if (targetElement.closest('[data-goto]')) {
+        const gotoLink = targetElement.closest('[data-goto]');
+        const gotoLinkSelector = gotoLink.dataset.goto ? gotoLink.dataset.goto : '';
+        const noHeader = gotoLink.hasAttribute('data-goto-header') ? true : false;
+        const gotoSpeed = gotoLink.dataset.gotoSpeed ? gotoLink.dataset.gotoSpeed : 500;
+        const offsetTop = gotoLink.dataset.gotoTop ? parseInt(gotoLink.dataset.gotoTop) : 0;
+        if (modules_flsModules.fullpage) {
+          const fullpageSection = document.querySelector(`${gotoLinkSelector}`).closest('[data-fp-section]');
+          const fullpageSectionId = fullpageSection ? +fullpageSection.dataset.fpId : null;
+          if (fullpageSectionId !== null) {
+            modules_flsModules.fullpage.switchingSection(fullpageSectionId);
+            document.documentElement.classList.contains("menu-open") ? menuClose() : null;
+          }
+        } else {
+          gotoBlock(gotoLinkSelector, noHeader, gotoSpeed, offsetTop);
+        }
+        e.preventDefault();
+      }
+    } else if (e.type === "watcherCallback" && e.detail) {
+      const entry = e.detail.entry;
+      const targetElement = entry.target;
+      if (targetElement.dataset.watch === 'navigator') {
+        const navigatorActiveItem = document.querySelector(`[data-goto]._navigator-active`);
+        let navigatorCurrentItem;
+        if (targetElement.id && document.querySelector(`[data-goto="#${targetElement.id}"]`)) {
+          navigatorCurrentItem = document.querySelector(`[data-goto="#${targetElement.id}"]`);
+        } else if (targetElement.classList.length) {
+          for (let index = 0; index < targetElement.classList.length; index++) {
+            const element = targetElement.classList[index];
+            if (document.querySelector(`[data-goto=".${element}"]`)) {
+              navigatorCurrentItem = document.querySelector(`[data-goto=".${element}"]`);
+              break;
+            }
+          }
+        }
+        if (entry.isIntersecting) {
+          navigatorCurrentItem ? navigatorCurrentItem.classList.add('_navigator-active') : null;
+        } else {
+          navigatorCurrentItem ? navigatorCurrentItem.classList.remove('_navigator-active') : null;
+        }
+      }
+    }
+  }
+}
+pageNavigation()
+
+//========================================================================================================================================================
+
 //Наблюдатель
 class ScrollWatcher {
   constructor(props) {
@@ -977,5 +1194,485 @@ class ScrollWatcher {
     }));
   }
 }
-
 modules_flsModules.watcher = new ScrollWatcher({});
+
+//========================================================================================================================================================
+
+//Табы каталог
+const tabBlocks = document.querySelectorAll('.right-block-catalog__tabs');
+if (tabBlocks) {
+
+  tabBlocks.forEach(block => {
+    const slides = block.querySelectorAll('.right-block-catalog__slide');
+    const bodies = block.querySelectorAll('.right-block-catalog__body');
+
+    function switchActive(targetProduct) {
+      slides.forEach(slide => slide.classList.remove('_active'));
+      bodies.forEach(body => body.classList.remove('_active'));
+
+      const activeSlide = block.querySelector(`.right-block-catalog__slide[data-product="${targetProduct}"]`);
+      const activeBody = block.querySelector(`.right-block-catalog__body[data-product="${targetProduct}"]`);
+
+      if (activeSlide) activeSlide.classList.add('_active');
+      if (activeBody) activeBody.classList.add('_active');
+    }
+
+    slides.forEach(slide => {
+      slide.addEventListener('click', function () {
+        const product = this.getAttribute('data-product');
+        switchActive(product);
+      });
+    });
+  });
+}
+
+const tabHeaders = document.querySelectorAll('.left-block-catalog__button');
+const tabContents = document.querySelectorAll('.right-block-catalog__tabs');
+
+if (tabHeaders.length > 0 && tabContents.length > 0) {
+  tabHeaders.forEach(header => {
+    header.addEventListener('click', function () {
+      const targetTab = this.getAttribute('data-tabs');
+
+      tabHeaders.forEach(btn => btn.classList.remove('_tab-active'));
+      this.classList.add('_tab-active');
+
+      tabContents.forEach(content => content.classList.remove('_tab-active'));
+      const targetContent = document.querySelector(`.right-block-catalog__tabs[data-tabs="${targetTab}"]`);
+      if (targetContent) {
+        targetContent.classList.add('_tab-active');
+      }
+
+      const customSelect = document.querySelector('.left-block-catalog__select');
+      if (customSelect && customSelect.closest('.select')) {
+        const originalSelect = customSelect;
+        const targetOption = originalSelect.querySelector(`option[data-tabs="${targetTab}"]`);
+        if (targetOption) {
+          originalSelect.selectedIndex = targetOption.index;
+          originalSelect.dispatchEvent(new Event('change'));
+        }
+      }
+    });
+  });
+}
+
+document.addEventListener("selectCallback", function (e) {
+  const changedSelect = e.detail.select;
+  if (changedSelect && changedSelect.classList.contains('left-block-catalog__select')) {
+    const selectedOption = changedSelect.options[changedSelect.selectedIndex];
+    const targetTab = selectedOption.dataset.tabs;
+
+    if (targetTab) {
+      tabContents.forEach(content => content.classList.remove('_tab-active'));
+      const targetContent = document.querySelector(`.right-block-catalog__tabs[data-tabs="${targetTab}"]`);
+      if (targetContent) {
+        targetContent.classList.add('_tab-active');
+      }
+
+      tabHeaders.forEach(btn => btn.classList.remove('_tab-active'));
+      const targetButton = document.querySelector(`.left-block-catalog__button[data-tabs="${targetTab}"]`);
+      if (targetButton) {
+        targetButton.classList.add('_tab-active');
+      }
+    }
+  }
+});
+
+//========================================================================================================================================================
+
+//Селект
+class SelectConstructor {
+  constructor(props, data = null) {
+    let defaultConfig = {
+      init: true,
+      logging: true,
+      speed: 150
+    }
+    this.config = Object.assign(defaultConfig, props);
+    this.selectClasses = {
+      classSelect: "select",
+      classSelectBody: "select__body",
+      classSelectTitle: "select__title",
+      classSelectValue: "select__value",
+      classSelectLabel: "select__label",
+      classSelectInput: "select__input",
+      classSelectText: "select__text",
+      classSelectLink: "select__link",
+      classSelectOptions: "select__options",
+      classSelectOptionsScroll: "select__scroll",
+      classSelectOption: "select__option",
+      classSelectContent: "select__content",
+      classSelectRow: "select__row",
+      classSelectData: "select__asset",
+      classSelectDisabled: "_select-disabled",
+      classSelectTag: "_select-tag",
+      classSelectOpen: "_select-open",
+      classSelectActive: "_select-active",
+      classSelectFocus: "_select-focus",
+      classSelectMultiple: "_select-multiple",
+      classSelectCheckBox: "_select-checkbox",
+      classSelectOptionSelected: "_select-selected",
+      classSelectPseudoLabel: "_select-pseudo-label",
+    }
+    this._this = this;
+    if (this.config.init) {
+      const selectItems = data ? document.querySelectorAll(data) : document.querySelectorAll('select');
+      if (selectItems.length) {
+        this.selectsInit(selectItems);
+      }
+    }
+  }
+  getSelectClass(className) {
+    return `.${className}`;
+  }
+  getSelectElement(selectItem, className) {
+    return {
+      originalSelect: selectItem.querySelector('select'),
+      selectElement: selectItem.querySelector(this.getSelectClass(className)),
+    }
+  }
+  selectsInit(selectItems) {
+    selectItems.forEach((originalSelect, index) => {
+      this.selectInit(originalSelect, index + 1);
+    });
+    document.addEventListener('click', function (e) {
+      this.selectsActions(e);
+    }.bind(this));
+    document.addEventListener('keydown', function (e) {
+      this.selectsActions(e);
+    }.bind(this));
+    document.addEventListener('focusin', function (e) {
+      this.selectsActions(e);
+    }.bind(this));
+    document.addEventListener('focusout', function (e) {
+      this.selectsActions(e);
+    }.bind(this));
+  }
+  selectInit(originalSelect, index) {
+    const _this = this;
+    let selectItem = document.createElement("div");
+    selectItem.classList.add(this.selectClasses.classSelect);
+    originalSelect.parentNode.insertBefore(selectItem, originalSelect);
+    selectItem.appendChild(originalSelect);
+    originalSelect.hidden = true;
+    index ? originalSelect.dataset.id = index : null;
+    if (this.getSelectPlaceholder(originalSelect)) {
+      originalSelect.dataset.placeholder = this.getSelectPlaceholder(originalSelect).value;
+      if (this.getSelectPlaceholder(originalSelect).label.show) {
+        const selectItemTitle = this.getSelectElement(selectItem, this.selectClasses.classSelectTitle).selectElement;
+        selectItemTitle.insertAdjacentHTML('afterbegin', `<span class="${this.selectClasses.classSelectLabel}">${this.getSelectPlaceholder(originalSelect).label.text ? this.getSelectPlaceholder(originalSelect).label.text : this.getSelectPlaceholder(originalSelect).value}</span>`);
+      }
+    }
+    selectItem.insertAdjacentHTML('beforeend', `<div class="${this.selectClasses.classSelectBody}"><div hidden class="${this.selectClasses.classSelectOptions}"></div></div>`);
+    this.selectBuild(originalSelect);
+    originalSelect.dataset.speed = originalSelect.dataset.speed ? originalSelect.dataset.speed : this.config.speed;
+    this.config.speed = +originalSelect.dataset.speed;
+    originalSelect.addEventListener('change', function (e) {
+      _this.selectChange(e);
+    });
+  }
+  selectBuild(originalSelect) {
+    const selectItem = originalSelect.parentElement;
+    selectItem.dataset.id = originalSelect.dataset.id;
+    originalSelect.dataset.classModif ? selectItem.classList.add(`select_${originalSelect.dataset.classModif}`) : null;
+    originalSelect.multiple ? selectItem.classList.add(this.selectClasses.classSelectMultiple) : selectItem.classList.remove(this.selectClasses.classSelectMultiple);
+    originalSelect.hasAttribute('data-checkbox') && originalSelect.multiple ? selectItem.classList.add(this.selectClasses.classSelectCheckBox) : selectItem.classList.remove(this.selectClasses.classSelectCheckBox);
+    this.setSelectTitleValue(selectItem, originalSelect);
+    this.setOptions(selectItem, originalSelect);
+    originalSelect.hasAttribute('data-search') ? this.searchActions(selectItem) : null;
+    originalSelect.hasAttribute('data-open') ? this.selectAction(selectItem) : null;
+    this.selectDisabled(selectItem, originalSelect);
+  }
+  selectsActions(e) {
+    const targetElement = e.target;
+    const targetType = e.type;
+    if (targetElement.closest(this.getSelectClass(this.selectClasses.classSelect)) || targetElement.closest(this.getSelectClass(this.selectClasses.classSelectTag))) {
+      const selectItem = targetElement.closest('.select') ? targetElement.closest('.select') : document.querySelector(`.${this.selectClasses.classSelect}[data-id="${targetElement.closest(this.getSelectClass(this.selectClasses.classSelectTag)).dataset.selectId}"]`);
+      const originalSelect = this.getSelectElement(selectItem).originalSelect;
+      if (targetType === 'click') {
+        if (!originalSelect.disabled) {
+          if (targetElement.closest(this.getSelectClass(this.selectClasses.classSelectTag))) {
+            const targetTag = targetElement.closest(this.getSelectClass(this.selectClasses.classSelectTag));
+            const optionItem = document.querySelector(`.${this.selectClasses.classSelect}[data-id="${targetTag.dataset.selectId}"] .select__option[data-value="${targetTag.dataset.value}"]`);
+            this.optionAction(selectItem, originalSelect, optionItem);
+          } else if (targetElement.closest(this.getSelectClass(this.selectClasses.classSelectTitle))) {
+            this.selectAction(selectItem);
+          } else if (targetElement.closest(this.getSelectClass(this.selectClasses.classSelectOption))) {
+            const optionItem = targetElement.closest(this.getSelectClass(this.selectClasses.classSelectOption));
+            this.optionAction(selectItem, originalSelect, optionItem);
+          }
+        }
+      } else if (targetType === 'focusin' || targetType === 'focusout') {
+        if (targetElement.closest(this.getSelectClass(this.selectClasses.classSelect))) {
+          targetType === 'focusin' ? selectItem.classList.add(this.selectClasses.classSelectFocus) : selectItem.classList.remove(this.selectClasses.classSelectFocus);
+        }
+      } else if (targetType === 'keydown' && e.code === 'Escape') {
+        this.selectsСlose();
+      }
+    } else {
+      this.selectsСlose();
+    }
+  }
+  selectsСlose(selectOneGroup) {
+    const selectsGroup = selectOneGroup ? selectOneGroup : document;
+    const selectActiveItems = selectsGroup.querySelectorAll(`${this.getSelectClass(this.selectClasses.classSelect)}${this.getSelectClass(this.selectClasses.classSelectOpen)}`);
+    if (selectActiveItems.length) {
+      selectActiveItems.forEach(selectActiveItem => {
+        this.selectСlose(selectActiveItem);
+      });
+    }
+  }
+  selectСlose(selectItem) {
+    const originalSelect = this.getSelectElement(selectItem).originalSelect;
+    const selectOptions = this.getSelectElement(selectItem, this.selectClasses.classSelectOptions).selectElement;
+    if (!selectOptions.classList.contains('_slide')) {
+      selectItem.classList.remove(this.selectClasses.classSelectOpen);
+      _slideUp(selectOptions, originalSelect.dataset.speed);
+      setTimeout(() => {
+        selectItem.style.zIndex = '';
+      }, originalSelect.dataset.speed);
+    }
+  }
+  selectAction(selectItem) {
+    const originalSelect = this.getSelectElement(selectItem).originalSelect;
+    const selectOptions = this.getSelectElement(selectItem, this.selectClasses.classSelectOptions).selectElement;
+    const selectOpenzIndex = originalSelect.dataset.zIndex ? originalSelect.dataset.zIndex : 3;
+    this.setOptionsPosition(selectItem);
+    this.selectsСlose();
+    setTimeout(() => {
+      if (!selectOptions.classList.contains('_slide')) {
+        selectItem.classList.toggle(this.selectClasses.classSelectOpen);
+        _slideToggle(selectOptions, originalSelect.dataset.speed);
+        if (selectItem.classList.contains(this.selectClasses.classSelectOpen)) {
+          selectItem.style.zIndex = selectOpenzIndex;
+        } else {
+          setTimeout(() => {
+            selectItem.style.zIndex = '';
+          }, originalSelect.dataset.speed);
+        }
+      }
+    }, 0);
+  }
+  setSelectTitleValue(selectItem, originalSelect) {
+    const selectItemBody = this.getSelectElement(selectItem, this.selectClasses.classSelectBody).selectElement;
+    const selectItemTitle = this.getSelectElement(selectItem, this.selectClasses.classSelectTitle).selectElement;
+    if (selectItemTitle) selectItemTitle.remove();
+    selectItemBody.insertAdjacentHTML("afterbegin", this.getSelectTitleValue(selectItem, originalSelect));
+    originalSelect.hasAttribute('data-search') ? this.searchActions(selectItem) : null;
+  }
+  getSelectTitleValue(selectItem, originalSelect) {
+    let selectTitleValue = this.getSelectedOptionsData(originalSelect, 2).html;
+    if (originalSelect.multiple && originalSelect.hasAttribute('data-tags')) {
+      selectTitleValue = this.getSelectedOptionsData(originalSelect).elements.map(option => `<span role="button" data-select-id="${selectItem.dataset.id}" data-value="${option.value}" class="_select-tag">${this.getSelectElementContent(option)}</span>`).join('');
+      if (originalSelect.dataset.tags && document.querySelector(originalSelect.dataset.tags)) {
+        document.querySelector(originalSelect.dataset.tags).innerHTML = selectTitleValue;
+        if (originalSelect.hasAttribute('data-search')) selectTitleValue = false;
+      }
+    }
+    selectTitleValue = selectTitleValue.length ? selectTitleValue : (originalSelect.dataset.placeholder ? originalSelect.dataset.placeholder : '');
+    let pseudoAttribute = '';
+    let pseudoAttributeClass = '';
+    if (originalSelect.hasAttribute('data-pseudo-label')) {
+      pseudoAttribute = originalSelect.dataset.pseudoLabel ? ` data-pseudo-label="${originalSelect.dataset.pseudoLabel}"` : ` data-pseudo-label="Заполните атрибут"`;
+      pseudoAttributeClass = ` ${this.selectClasses.classSelectPseudoLabel}`;
+    }
+    this.getSelectedOptionsData(originalSelect).values.length ? selectItem.classList.add(this.selectClasses.classSelectActive) : selectItem.classList.remove(this.selectClasses.classSelectActive);
+    if (originalSelect.hasAttribute('data-search')) {
+      return `<div class="${this.selectClasses.classSelectTitle}"><span${pseudoAttribute} class="${this.selectClasses.classSelectValue}"><input autocomplete="off" type="text" placeholder="${selectTitleValue}" data-placeholder="${selectTitleValue}" class="${this.selectClasses.classSelectInput}"></span></div>`;
+    } else {
+      const customClass = this.getSelectedOptionsData(originalSelect).elements.length && this.getSelectedOptionsData(originalSelect).elements[0].dataset.class ? ` ${this.getSelectedOptionsData(originalSelect).elements[0].dataset.class}` : '';
+      return `<button type="button" class="${this.selectClasses.classSelectTitle}"><span${pseudoAttribute} class="${this.selectClasses.classSelectValue}${pseudoAttributeClass}"><span class="${this.selectClasses.classSelectContent}${customClass}">${selectTitleValue}</span></span></button>`;
+    }
+  }
+  getSelectElementContent(selectOption) {
+    const selectOptionData = selectOption.dataset.asset ? `${selectOption.dataset.asset}` : '';
+    const selectOptionDataHTML = selectOptionData.indexOf('img') >= 0 ? `<img src="${selectOptionData}" alt="">` : selectOptionData;
+    let selectOptionContentHTML = ``;
+    selectOptionContentHTML += selectOptionData ? `<span class="${this.selectClasses.classSelectRow}">` : '';
+    selectOptionContentHTML += selectOptionData ? `<span class="${this.selectClasses.classSelectData}">` : '';
+    selectOptionContentHTML += selectOptionData ? selectOptionDataHTML : '';
+    selectOptionContentHTML += selectOptionData ? `</span>` : '';
+    selectOptionContentHTML += selectOptionData ? `<span class="${this.selectClasses.classSelectText}">` : '';
+    selectOptionContentHTML += selectOption.innerHTML;
+    selectOptionContentHTML += selectOptionData ? `</span>` : '';
+    selectOptionContentHTML += selectOptionData ? `</span>` : '';
+    return selectOptionContentHTML;
+  }
+  getSelectPlaceholder(originalSelect) {
+    const selectPlaceholder = Array.from(originalSelect.options).find(option => !option.value);
+    if (selectPlaceholder) {
+      return {
+        value: selectPlaceholder.textContent,
+        show: selectPlaceholder.hasAttribute("data-show"),
+        label: {
+          show: selectPlaceholder.hasAttribute("data-label"),
+          text: selectPlaceholder.dataset.label
+        }
+      }
+    }
+  }
+  getSelectedOptionsData(originalSelect, type) {
+    let selectedOptions = [];
+    if (originalSelect.multiple) {
+      selectedOptions = Array.from(originalSelect.options).filter(option => option.value).filter(option => option.selected);
+    } else {
+      selectedOptions.push(originalSelect.options[originalSelect.selectedIndex]);
+    }
+    return {
+      elements: selectedOptions.map(option => option),
+      values: selectedOptions.filter(option => option.value).map(option => option.value),
+      html: selectedOptions.map(option => this.getSelectElementContent(option))
+    }
+  }
+  getOptions(originalSelect) {
+    const selectOptionsScroll = originalSelect.hasAttribute('data-scroll') ? `data-simplebar` : '';
+    const customMaxHeightValue = +originalSelect.dataset.scroll ? +originalSelect.dataset.scroll : null;
+    let selectOptions = Array.from(originalSelect.options);
+    if (selectOptions.length > 0) {
+      let selectOptionsHTML = ``;
+      if ((this.getSelectPlaceholder(originalSelect) && !this.getSelectPlaceholder(originalSelect).show) || originalSelect.multiple) {
+        selectOptions = selectOptions.filter(option => option.value);
+      }
+      selectOptionsHTML += `<div ${selectOptionsScroll} ${selectOptionsScroll ? `style="max-height: ${customMaxHeightValue}px"` : ''} class="${this.selectClasses.classSelectOptionsScroll}">`;
+      selectOptions.forEach(selectOption => {
+        selectOptionsHTML += this.getOption(selectOption, originalSelect);
+      });
+      selectOptionsHTML += `</div>`;
+      return selectOptionsHTML;
+    }
+  }
+  getOption(selectOption, originalSelect) {
+    const selectOptionSelected = selectOption.selected ? ` ${this.selectClasses.classSelectOptionSelected}` : '';
+    const selectOptionHide = selectOption.selected && !originalSelect.hasAttribute('data-show-selected') && !originalSelect.multiple ? `hidden` : ``;
+    const selectOptionClass = selectOption.dataset.class ? ` ${selectOption.dataset.class}` : '';
+    const selectOptionLink = selectOption.dataset.href ? selectOption.dataset.href : false;
+    const selectOptionLinkTarget = selectOption.hasAttribute('data-href-blank') ? `target="_blank"` : '';
+    let selectOptionHTML = ``;
+    selectOptionHTML += selectOptionLink ? `<a ${selectOptionLinkTarget} ${selectOptionHide} href="${selectOptionLink}" data-value="${selectOption.value}" class="${this.selectClasses.classSelectOption}${selectOptionClass}${selectOptionSelected}">` : `<button ${selectOptionHide} class="${this.selectClasses.classSelectOption}${selectOptionClass}${selectOptionSelected}" data-value="${selectOption.value}" type="button">`;
+    selectOptionHTML += this.getSelectElementContent(selectOption);
+    selectOptionHTML += selectOptionLink ? `</a>` : `</button>`;
+    return selectOptionHTML;
+  }
+  setOptions(selectItem, originalSelect) {
+    const selectItemOptions = this.getSelectElement(selectItem, this.selectClasses.classSelectOptions).selectElement;
+    selectItemOptions.innerHTML = this.getOptions(originalSelect);
+  }
+  setOptionsPosition(selectItem) {
+    const originalSelect = this.getSelectElement(selectItem).originalSelect;
+    const selectOptions = this.getSelectElement(selectItem, this.selectClasses.classSelectOptions).selectElement;
+    const selectItemScroll = this.getSelectElement(selectItem, this.selectClasses.classSelectOptionsScroll).selectElement;
+    const customMaxHeightValue = +originalSelect.dataset.scroll ? `${+originalSelect.dataset.scroll}px` : ``;
+    const selectOptionsPosMargin = +originalSelect.dataset.optionsMargin ? +originalSelect.dataset.optionsMargin : 10;
+    if (!selectItem.classList.contains(this.selectClasses.classSelectOpen)) {
+      selectOptions.hidden = false;
+      const selectItemScrollHeight = selectItemScroll.offsetHeight ? selectItemScroll.offsetHeight : parseInt(window.getComputedStyle(selectItemScroll).getPropertyValue('max-height'));
+      const selectOptionsHeight = selectOptions.offsetHeight > selectItemScrollHeight ? selectOptions.offsetHeight : selectItemScrollHeight + selectOptions.offsetHeight;
+      const selectOptionsScrollHeight = selectOptionsHeight - selectItemScrollHeight;
+      selectOptions.hidden = true;
+      const selectItemHeight = selectItem.offsetHeight;
+      const selectItemPos = selectItem.getBoundingClientRect().top;
+      const selectItemTotal = selectItemPos + selectOptionsHeight + selectItemHeight + selectOptionsScrollHeight;
+      const selectItemResult = window.innerHeight - (selectItemTotal + selectOptionsPosMargin);
+      if (selectItemResult < 0) {
+        const newMaxHeightValue = selectOptionsHeight + selectItemResult;
+        if (newMaxHeightValue < 100) {
+          selectItem.classList.add('select--show-top');
+          selectItemScroll.style.maxHeight = selectItemPos < selectOptionsHeight ? `${selectItemPos - (selectOptionsHeight - selectItemPos)}px` : customMaxHeightValue;
+        } else {
+          selectItem.classList.remove('select--show-top');
+          selectItemScroll.style.maxHeight = `${newMaxHeightValue}px`;
+        }
+      }
+    } else {
+      setTimeout(() => {
+        selectItem.classList.remove('select--show-top');
+        selectItemScroll.style.maxHeight = customMaxHeightValue;
+      }, +originalSelect.dataset.speed);
+    }
+  }
+  optionAction(selectItem, originalSelect, optionItem) {
+    const selectOptions = selectItem.querySelector(`${this.getSelectClass(this.selectClasses.classSelectOptions)}`);
+    if (!selectOptions.classList.contains('_slide')) {
+      if (originalSelect.multiple) {
+        optionItem.classList.toggle(this.selectClasses.classSelectOptionSelected);
+        const originalSelectSelectedItems = this.getSelectedOptionsData(originalSelect).elements;
+        originalSelectSelectedItems.forEach(originalSelectSelectedItem => {
+          originalSelectSelectedItem.removeAttribute('selected');
+        });
+        const selectSelectedItems = selectItem.querySelectorAll(this.getSelectClass(this.selectClasses.classSelectOptionSelected));
+        selectSelectedItems.forEach(selectSelectedItems => {
+          originalSelect.querySelector(`option[value = "${selectSelectedItems.dataset.value}"]`).setAttribute('selected', 'selected');
+        });
+      } else {
+        const previouslySelectedOption = selectOptions.querySelector(`${this.getSelectClass(this.selectClasses.classSelectOptionSelected)}`);
+
+        if (previouslySelectedOption) {
+          previouslySelectedOption.classList.remove(this.selectClasses.classSelectOptionSelected);
+          if (previouslySelectedOption.hidden) {
+            previouslySelectedOption.hidden = false;
+          }
+        }
+
+        optionItem.classList.add(this.selectClasses.classSelectOptionSelected);
+
+        originalSelect.value = optionItem.hasAttribute('data-value') ? optionItem.dataset.value : optionItem.textContent;
+        this.selectAction(selectItem);
+      }
+      this.setSelectTitleValue(selectItem, originalSelect);
+      this.setSelectChange(originalSelect);
+    }
+  }
+  selectChange(e) {
+    const originalSelect = e.target;
+    this.selectBuild(originalSelect);
+    this.setSelectChange(originalSelect);
+  }
+  setSelectChange(originalSelect) {
+    if (originalSelect.hasAttribute('data-validate')) {
+      formValidate.validateInput(originalSelect);
+    }
+    if (originalSelect.hasAttribute('data-submit') && originalSelect.value) {
+      let tempButton = document.createElement("button");
+      tempButton.type = "submit";
+      originalSelect.closest('form').append(tempButton);
+      tempButton.click();
+      tempButton.remove();
+    }
+    const selectItem = originalSelect.parentElement;
+    this.selectCallback(selectItem, originalSelect);
+  }
+  selectDisabled(selectItem, originalSelect) {
+    if (originalSelect.disabled) {
+      selectItem.classList.add(this.selectClasses.classSelectDisabled);
+      this.getSelectElement(selectItem, this.selectClasses.classSelectTitle).selectElement.disabled = true;
+    } else {
+      selectItem.classList.remove(this.selectClasses.classSelectDisabled);
+      this.getSelectElement(selectItem, this.selectClasses.classSelectTitle).selectElement.disabled = false;
+    }
+  }
+  searchActions(selectItem) {
+    const originalSelect = this.getSelectElement(selectItem).originalSelect;
+    const selectInput = this.getSelectElement(selectItem, this.selectClasses.classSelectInput).selectElement;
+    const selectOptions = this.getSelectElement(selectItem, this.selectClasses.classSelectOptions).selectElement;
+    const selectOptionsItems = selectOptions.querySelectorAll(`.${this.selectClasses.classSelectOption} `);
+    const _this = this;
+    selectInput.addEventListener("input", function () {
+      selectOptionsItems.forEach(selectOptionsItem => {
+        if (selectOptionsItem.textContent.toUpperCase().includes(selectInput.value.toUpperCase())) {
+          selectOptionsItem.hidden = false;
+        } else {
+          selectOptionsItem.hidden = true;
+        }
+      });
+      selectOptions.hidden === true ? _this.selectAction(selectItem) : null;
+    });
+  }
+  selectCallback(selectItem, originalSelect) {
+    document.dispatchEvent(new CustomEvent("selectCallback", {
+      detail: {
+        select: originalSelect
+      }
+    }));
+  }
+}
+modules_flsModules.select = new SelectConstructor({});
