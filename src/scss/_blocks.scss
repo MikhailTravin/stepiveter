@@ -2679,6 +2679,7 @@
     display: flex;
     align-items: start;
     justify-content: space-between;
+   
     &._tab-active {
       pointer-events: none;
       .left-block-catalog__title {
@@ -3601,6 +3602,7 @@
   &__image {
     flex: 0 0 200px;
     @media (max-width: 768px) {
+      width: 100px;
       flex: 0 1 auto;
       height: 120px;
     }
