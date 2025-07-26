@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>404</title>
+    {% include 'blocks/head.njk' %}
+</head>
+
+<body class="preload">
+    <div class="main-wrapper-outer">
+        {% include 'blocks/header.njk' %}
+        <main class="main">
+
+            <div class="block-error block1">
+                <div class="container">
+                    <div data-watch data-watch-once class="block-error__content watch">
+                        <img src="img/bg10.webp" alt="" class="block-error__bg1">
+                        <img src="img/bg1.webp" alt="" class="block-error__bg2">
+                        <img src="img/image7.webp" alt="" class="block-error__pic1">
+                        <img src="img/image7.webp" alt="" class="block-error__pic2">
+                        <div class="block-error__body">
+                            <h1>
+                                <img src="img/404.webp" alt="">
+                            </h1>
+                            <h2 class="title2">
+                                Страница не найдена
+                            </h2>
+                            <p>
+                                наши пчёлы ещё трудятся над ней
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+        {% include 'blocks/footer.njk' %}
+    </div>
+    {% include 'blocks/scripts.njk' %}
+</body>
+
+</html>

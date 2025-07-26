@@ -11,7 +11,138 @@
         {% include 'blocks/header.njk' %}
         <main class="main">
 
-            
+            <div class="block-authorization block1">
+                <div class="container">
+                    <div data-watch data-watch-once class="block-authorization__content watch">
+                        <img src="img/bg9.webp" alt="" class="block-authorization__bg">
+                        <img src="img/bg1.webp" alt="" class="block-authorization__bg1">
+                        <img src="img/image7.webp" alt="" class="block-authorization__pic1">
+                        <div data-tabs class="block-authorization__tabs tabs-authorization">
+                            <nav data-tabs-titles class="tabs-authorization__navigation">
+                                <button type="button" class="tabs-authorization__title">Вход</button>
+                                <button type="button" class="tabs-authorization__title _tab-active">Регистрация</button>
+                            </nav>
+                            <div data-tabs-body class="tabs-authorization__content">
+                                <div class="tabs-authorization__body">
+                                    <form data-dev data-popup-message="#thanks" action="#" class="forms">
+                                        <h2 class="title2">
+                                            Авторизация
+                                        </h2>
+                                        <div class="forms__content">
+                                            <div class="forms__left">
+                                                <div class="forms__inputs">
+                                                    <div class="forms__input">
+                                                        <input data-required autocomplete="off" type="text"
+                                                            name="form[]" placeholder="Введите E-mail">
+                                                        <div class="forms__placeholder">
+                                                            Ваш e-mail <span>*</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-orange">Войти в кабинет</button>
+                                    </form>
+                                </div>
+                                <div class="tabs-authorization__body">
+                                    <form data-dev data-popup-message="#thanks" action="#" class="forms">
+                                        <h2 class="title2">
+                                            Регистрация для бизнеса
+                                        </h2>
+                                        <div class="forms__content">
+                                            <div class="forms__left">
+                                                <div class="forms__inputs">
+                                                    <div class="forms__input">
+                                                        <input data-required autocomplete="off" type="text"
+                                                            name="form[]" placeholder="Введите компанию">
+                                                        <div class="forms__placeholder">
+                                                            Укажите компанию <span>*</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="forms__input">
+                                                        <input data-required autocomplete="off" type="text"
+                                                            name="form[]" placeholder="Введите город">
+                                                        <div class="forms__placeholder">
+                                                            Укажите город <span>*</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="forms__input">
+                                                        <input data-required autocomplete="off" type="text"
+                                                            name="form[]" placeholder="Введите E-mail">
+                                                        <div class="forms__placeholder">
+                                                            Ваш e-mail <span>*</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="forms__input">
+                                                        <input data-required autocomplete="off" type="text"
+                                                            name="form[]" placeholder="Введите телефон">
+                                                        <div class="forms__placeholder">
+                                                            Ваш телефон <span>*</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="forms__input">
+                                                        <input data-required autocomplete="off" type="text"
+                                                            name="form[]" placeholder="Введите ИНН">
+                                                        <div class="forms__placeholder">
+                                                            ИНН Компании <span>*</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="forms__right">
+                                                <div class="forms__textarea">
+                                                    <textarea autocomplete="off" type="text" name="form[]"
+                                                        placeholder="Сообщение"></textarea>
+                                                    <div class="forms__placeholder">
+                                                        Сообщение
+                                                    </div>
+                                                </div>
+                                                <div class="checkboxes">
+                                                    <div class="checkbox">
+                                                        <input data-required id="c_1" class="checkbox__input"
+                                                            type="checkbox" value="1" name="form[]">
+                                                        <label for="c_1" class="checkbox__label">
+                                                            <span class="checkbox__icon">
+                                                                <svg aria-hidden="true" width="15" height="12">
+                                                                    <use xlink:href="img/sprite.svg#chek1"></use>
+                                                                </svg>
+                                                            </span>
+                                                            <span class="checkbox__text">Узнавать, что сварили</span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="checkbox">
+                                                        <input data-required id="c_2" class="checkbox__input"
+                                                            type="checkbox" value="1" name="form[]">
+                                                        <label for="c_2" class="checkbox__label">
+                                                            <span class="checkbox__icon">
+                                                                <svg aria-hidden="true" width="15" height="12">
+                                                                    <use xlink:href="img/sprite.svg#chek1"></use>
+                                                                </svg>
+                                                            </span>
+                                                            <span class="checkbox__text">
+                                                                Даю <a href="#" target="_blank">согласие</a> на
+                                                                обработку моих
+                                                                персональных
+                                                                данных в
+                                                                соответствии с
+                                                                <a href="#" target="_blank">политикой обработки
+                                                                    персональных
+                                                                    данных</a>
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="g-recaptcha" data-sitekey="ВАШ_SITE_KEY"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-orange">Зарегистрироваться</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
         </main>
         {% include 'blocks/footer.njk' %}

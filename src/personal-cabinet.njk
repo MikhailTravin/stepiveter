@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Личный кабинет</title>
+    {% include 'blocks/head.njk' %}
+</head>
+
+<body class="preload">
+    <div class="main-wrapper-outer">
+        {% include 'blocks/header.njk' %}
+        <main class="main">
+
+            <div class="block-personal-cabinet block1">
+                <div class="container">
+                    <div data-watch data-watch-once class="block-personal-cabinet__content watch">
+                        <img src="img/bg10.webp" alt="" class="block-personal-cabinet__bg1">
+                        <img src="img/bg1.webp" alt="" class="block-personal-cabinet__bg2">
+                        <div class="block-personal-cabinet__top top-personal-cabinet">
+                            <div class="top-personal-cabinet__mail">Login@stepiveter.ru</div>
+                            <a href="#" class="top-personal-cabinet__button">
+                                <span>Выйти из кабинета</span>
+                                <div class="btn-circle btn-circle-orange">
+                                    <svg aria-hidden="true" width="17" height="16">
+                                        <use xlink:href="img/sprite.svg#arrow1"></use>
+                                    </svg>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="block-personal-cabinet__bottom bottom-personal-cabinet">
+                            <h2 class="title2">Сделать заказ</h2>
+                            <div class="bottom-personal-cabinet__content">
+                                <div class="bottom-personal-cabinet__tabs tabs-personal-cabinet">
+                                    <div class="tabs-personal-cabinet__navigations">
+                                        <nav class="tabs-personal-cabinet__navigation">
+                                            <button data-id="1" type="button"
+                                                class="tabs-personal-cabinet__title _tab-active">Оренбург</button>
+                                            <button data-id="2" type="button"
+                                                class="tabs-personal-cabinet__title">Москва</button>
+                                        </nav>
+                                        <nav class="tabs-personal-cabinet__navigation">
+                                            <button data-id="3" type="button"
+                                                class="tabs-personal-cabinet__title _tab-active">Фасовка</button>
+                                            <button data-id="4" type="button"
+                                                class="tabs-personal-cabinet__title">Кеги</button>
+                                        </nav>
+                                    </div>
+                                    <div class="tabs-personal-cabinet__content">
+                                        <div class="tabs-personal-cabinet__body">
+                                            <div class="tabs-personal-cabinet__columns">
+                                                <div class="tabs-personal-cabinet__column">
+                                                    <div class="tabs-personal-cabinet__image">
+                                                        <img loading="lazy" src="img/products/image47.webp" alt="">
+                                                    </div>
+                                                    <div class="tabs-personal-cabinet__item item-personal-cabinet">
+                                                        <div class="item-personal-cabinet__left">
+                                                            <div class="item-personal-cabinet__titles">
+                                                                <a href="#" class="item-personal-cabinet__title">
+                                                                    АКЦИЯ / Маракуйя-перец Капсицумель 1/ Passion F
+                                                                </a>
+                                                                <div class="item-personal-cabinet__weight">
+                                                                    Вес: 0.35 кг
+                                                                </div>
+                                                            </div>
+                                                            <a href="#" class="btn-circle btn-circle-orange">
+                                                                <svg aria-hidden="true" width="25" height="21">
+                                                                    <use xlink:href="img/sprite.svg#rutube"></use>
+                                                                </svg>
+                                                            </a>
+                                                        </div>
+                                                        <div class="item-personal-cabinet__right">
+                                                            <div class="item-personal-cabinet__totals">
+                                                                <div class="item-personal-cabinet__summ">
+                                                                    140
+                                                                    <span>руб.</span>
+                                                                </div>
+                                                                <div class="item-personal-cabinet__name">за шт.</div>
+                                                            </div>
+                                                            <div class="item-personal-cabinet__select">
+                                                                <div class="item-personal-cabinet__label">Выберите
+                                                                    количество</div>
+                                                                <select name="form[]" class="select">
+                                                                    <option value="1" selected>0</option>
+                                                                    <option value="2">1</option>
+                                                                    <option value="3">2</option>
+                                                                    <option value="4">3</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="tabs-personal-cabinet__column">
+                                                    <div class="tabs-personal-cabinet__image">
+                                                        <img loading="lazy" src="img/products/image48.webp" alt="">
+                                                    </div>
+                                                    <div class="tabs-personal-cabinet__item item-personal-cabinet">
+                                                        <div class="item-personal-cabinet__left">
+                                                            <div class="item-personal-cabinet__titles">
+                                                                <a href="#" class="item-personal-cabinet__title">
+                                                                    Традиционный Мёд (СИВ1)/ Traditional mead - 0,45,
+                                                                    4,5% об.
+                                                                </a>
+                                                                <div class="item-personal-cabinet__weight">
+                                                                    Вес: 0.495 кг
+                                                                </div>
+                                                            </div>
+                                                            <a href="#" class="btn-circle btn-circle-orange">
+                                                                <svg aria-hidden="true" width="25" height="21">
+                                                                    <use xlink:href="img/sprite.svg#rutube"></use>
+                                                                </svg>
+                                                            </a>
+                                                        </div>
+                                                        <div class="item-personal-cabinet__right">
+                                                            <div class="item-personal-cabinet__totals">
+                                                                <div class="item-personal-cabinet__summ">
+                                                                    160
+                                                                    <span>руб.</span>
+                                                                </div>
+                                                                <div class="item-personal-cabinet__name">за шт.</div>
+                                                            </div>
+                                                            <div class="item-personal-cabinet__select">
+                                                                <div class="item-personal-cabinet__label">Выберите
+                                                                    количество</div>
+                                                                <select name="form[]" class="select">
+                                                                    <option value="1" selected>0</option>
+                                                                    <option value="2">1</option>
+                                                                    <option value="3">2</option>
+                                                                    <option value="4">3</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="tabs-personal-cabinet__column">
+                                                    <div class="tabs-personal-cabinet__image">
+                                                        <img loading="lazy" src="img/products/image49.webp" alt="">
+                                                    </div>
+                                                    <div class="tabs-personal-cabinet__item item-personal-cabinet">
+                                                        <div class="item-personal-cabinet__left">
+                                                            <div class="item-personal-cabinet__titles">
+                                                                <a href="#" class="item-personal-cabinet__title">
+                                                                    Tonic mead/ СиВ 4, 0,45,_4,5% об.
+                                                                </a>
+                                                                <div class="item-personal-cabinet__weight">
+                                                                    Вес: 0.495 кг
+                                                                </div>
+                                                            </div>
+                                                            <a href="#" class="btn-circle btn-circle-orange">
+                                                                <svg aria-hidden="true" width="25" height="21">
+                                                                    <use xlink:href="img/sprite.svg#rutube"></use>
+                                                                </svg>
+                                                            </a>
+                                                        </div>
+                                                        <div class="item-personal-cabinet__right">
+                                                            <div class="item-personal-cabinet__totals">
+                                                                <div class="item-personal-cabinet__summ">
+                                                                    170
+                                                                    <span>руб.</span>
+                                                                </div>
+                                                                <div class="item-personal-cabinet__name">за шт.</div>
+                                                            </div>
+                                                            <div class="item-personal-cabinet__select">
+                                                                <div class="item-personal-cabinet__label">Выберите
+                                                                    количество</div>
+                                                                <select name="form[]" class="select">
+                                                                    <option value="1" selected>0</option>
+                                                                    <option value="2">1</option>
+                                                                    <option value="3">2</option>
+                                                                    <option value="4">3</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="tabs-personal-cabinet__column">
+                                                    <div class="tabs-personal-cabinet__image">
+                                                        <img loading="lazy" src="img/products/image50.webp" alt="">
+                                                    </div>
+                                                    <div class="tabs-personal-cabinet__item item-personal-cabinet">
+                                                        <div class="item-personal-cabinet__left">
+                                                            <div class="item-personal-cabinet__titles">
+                                                                <a href="#" class="item-personal-cabinet__title">
+                                                                    Juniper & Basil Tonic Mead/ Медовуха
+                                                                    нефильтрованная, осветленная "Меломель
+                                                                    Можжевельник"-4,5% об., 0,45
+                                                                </a>
+                                                                <div class="item-personal-cabinet__weight">
+                                                                    Вес: 0.495 кг
+                                                                </div>
+                                                            </div>
+                                                            <a href="#" class="btn-circle btn-circle-orange">
+                                                                <svg aria-hidden="true" width="25" height="21">
+                                                                    <use xlink:href="img/sprite.svg#rutube"></use>
+                                                                </svg>
+                                                            </a>
+                                                        </div>
+                                                        <div class="item-personal-cabinet__right">
+                                                            <div class="item-personal-cabinet__totals">
+                                                                <div class="item-personal-cabinet__summ">
+                                                                    200
+                                                                    <span>руб.</span>
+                                                                </div>
+                                                                <div class="item-personal-cabinet__name">за шт.</div>
+                                                            </div>
+                                                            <div class="item-personal-cabinet__select">
+                                                                <div class="item-personal-cabinet__label">Выберите
+                                                                    количество</div>
+                                                                <select name="form[]" class="select">
+                                                                    <option value="1" selected>0</option>
+                                                                    <option value="2">1</option>
+                                                                    <option value="3">2</option>
+                                                                    <option value="4">3</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="tabs-personal-cabinet__column">
+                                                    <div class="tabs-personal-cabinet__image">
+                                                        <img loading="lazy" src="img/products/image51.webp" alt="">
+                                                    </div>
+                                                    <div class="tabs-personal-cabinet__item item-personal-cabinet">
+                                                        <div class="item-personal-cabinet__left">
+                                                            <div class="item-personal-cabinet__titles">
+                                                                <a href="#" class="item-personal-cabinet__title">
+                                                                    Мёд и Абрикос/ Apricot Mead - 0,45, 6,0% об.
+                                                                </a>
+                                                                <div class="item-personal-cabinet__weight">
+                                                                    Вес: 0.495 кг
+                                                                </div>
+                                                            </div>
+                                                            <a href="#" class="btn-circle btn-circle-orange">
+                                                                <svg aria-hidden="true" width="25" height="21">
+                                                                    <use xlink:href="img/sprite.svg#rutube"></use>
+                                                                </svg>
+                                                            </a>
+                                                        </div>
+                                                        <div class="item-personal-cabinet__right">
+                                                            <div class="item-personal-cabinet__totals">
+                                                                <div class="item-personal-cabinet__summ">
+                                                                    230
+                                                                    <span>руб.</span>
+                                                                </div>
+                                                                <div class="item-personal-cabinet__name">за шт.</div>
+                                                            </div>
+                                                            <div class="item-personal-cabinet__select">
+                                                                <div class="item-personal-cabinet__label">Выберите
+                                                                    количество</div>
+                                                                <select name="form[]" class="select">
+                                                                    <option value="1" selected>0</option>
+                                                                    <option value="2">1</option>
+                                                                    <option value="3">2</option>
+                                                                    <option value="4">3</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="tabs-personal-cabinet__column">
+                                                    <div class="tabs-personal-cabinet__image">
+                                                        <img loading="lazy" src="img/products/image48.webp" alt="">
+                                                    </div>
+                                                    <div class="tabs-personal-cabinet__item item-personal-cabinet">
+                                                        <div class="item-personal-cabinet__left">
+                                                            <div class="item-personal-cabinet__titles">
+                                                                <a href="#" class="item-personal-cabinet__title">
+                                                                    Традиционный Мёд (СИВ1)/ Traditional mead - 4,5%
+                                                                    об., 20
+                                                                </a>
+                                                                <div class="item-personal-cabinet__weight">
+                                                                    Вес: 22 кг
+                                                                </div>
+                                                            </div>
+                                                            <a href="#" class="btn-circle btn-circle-orange">
+                                                                <svg aria-hidden="true" width="25" height="21">
+                                                                    <use xlink:href="img/sprite.svg#rutube"></use>
+                                                                </svg>
+                                                            </a>
+                                                        </div>
+                                                        <div class="item-personal-cabinet__right">
+                                                            <div class="item-personal-cabinet__totals">
+                                                                <div class="item-personal-cabinet__summ">
+                                                                    4 200
+                                                                    <span>руб.</span>
+                                                                </div>
+                                                                <div class="item-personal-cabinet__name">за 20 л</div>
+                                                            </div>
+                                                            <div class="item-personal-cabinet__select">
+                                                                <div class="item-personal-cabinet__label">Выберите объём
+                                                                </div>
+                                                                <select name="form[]" class="select">
+                                                                    <option value="1" selected>0</option>
+                                                                    <option value="2">1</option>
+                                                                    <option value="3">2</option>
+                                                                    <option value="4">3</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="tabs-personal-cabinet__column">
+                                                    <div class="tabs-personal-cabinet__image">
+                                                        <img loading="lazy" src="img/products/image52.webp" alt="">
+                                                    </div>
+                                                    <div class="tabs-personal-cabinet__item item-personal-cabinet">
+                                                        <div class="item-personal-cabinet__left">
+                                                            <div class="item-personal-cabinet__titles">
+                                                                <a href="#" class="item-personal-cabinet__title">
+                                                                    Мёд и Вишня/ Cherry Mead - 6,0% об., 20 л
+                                                                </a>
+                                                                <div class="item-personal-cabinet__weight">
+                                                                    Вес: 22 кг
+                                                                </div>
+                                                            </div>
+                                                            <a href="#" class="btn-circle btn-circle-orange">
+                                                                <svg aria-hidden="true" width="25" height="21">
+                                                                    <use xlink:href="img/sprite.svg#rutube"></use>
+                                                                </svg>
+                                                            </a>
+                                                        </div>
+                                                        <div class="item-personal-cabinet__right">
+                                                            <div class="item-personal-cabinet__totals">
+                                                                <div class="item-personal-cabinet__summ">
+                                                                    6 400
+                                                                    <span>руб.</span>
+                                                                </div>
+                                                                <div class="item-personal-cabinet__name">за 20 л</div>
+                                                            </div>
+                                                            <div class="item-personal-cabinet__select">
+                                                                <div class="item-personal-cabinet__label">Выберите объём
+                                                                </div>
+                                                                <select name="form[]" class="select">
+                                                                    <option value="1" selected>0</option>
+                                                                    <option value="2">1</option>
+                                                                    <option value="3">2</option>
+                                                                    <option value="4">3</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bottom-personal-cabinet__right">
+                                    <div class="bottom-personal-cabinet__sticky">
+                                        <form action="#" class="forms">
+                                            <div class="forms__totals">
+                                                <div class="forms__name">Сумма</div>
+                                                <div class="forms__summ">76 300 <span>руб.</span></div>
+                                            </div>
+                                            <div class="forms__code">
+                                                <div class="forms__inputs">
+                                                    <div class="forms__input">
+                                                        <input autocomplete="off" type="text" name="form[]"
+                                                            placeholder="Промокод">
+                                                        <div class="forms__placeholder">
+                                                            Промокод
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <button type="button" class="btn btn-orange">Проверить</button>
+                                            </div>
+                                            <div class="forms__textarea">
+                                                <textarea autocomplete="off" type="text" name="form[]"
+                                                    placeholder="Комментарий к заказу"></textarea>
+                                                <div class="forms__placeholder">
+                                                    Комментарий к заказу
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="btn btn-orange">Оформить заказ</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="floating-button">
+                    <div class="floating-button__totals">
+                        <div class="floating-button__title">Сумма</div>
+                        <div class="floating-button__summ">
+                            76 300 <span>руб.</span>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-orange">
+                        <span>Заказать</span>
+                    </a>
+                </div>
+            </div>
+            
+        </main>
+        {% include 'blocks/footer.njk' %}
+    </div>
+    {% include 'blocks/scripts.njk' %}
+</body>
+
+</html>
