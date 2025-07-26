@@ -215,26 +215,6 @@ if (header) {
 
 //========================================================================================================================================================
 
-function indents() {
-  const header = document.querySelector('.header');
-  const page = document.querySelector('.main');
-
-  // Установка отступа под шапку
-  if (header && page) {
-    let hHeader = window.getComputedStyle(header).height;
-    hHeader = parseFloat(hHeader);
-    page.style.paddingTop = hHeader + 'px';
-  }
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  indents();
-});
-window.addEventListener('resize', indents);
-window.addEventListener('scroll', indents);
-
-//========================================================================================================================================================
-
 if (document.querySelector('.bottom-block-intro__slider')) {
   let swiperIntro;
 
@@ -1676,3 +1656,278 @@ class SelectConstructor {
   }
 }
 modules_flsModules.select = new SelectConstructor({});
+
+//========================================================================================================================================================
+
+function tabs() {
+  const tabs = document.querySelectorAll('[data-tabs]');
+  let tabsActiveHash = [];
+
+  if (tabs.length > 0) {
+    const hash = getHash();
+    if (hash && hash.startsWith('tab-')) {
+      tabsActiveHash = hash.replace('tab-', '').split('-');
+    }
+    tabs.forEach((tabsBlock, index) => {
+      tabsBlock.classList.add('_tab-init');
+      tabsBlock.setAttribute('data-tabs-index', index);
+      tabsBlock.addEventListener("click", setTabsAction);
+      initTabs(tabsBlock);
+    });
+
+    // Получение спойлеров с медиа-запросами
+    let mdQueriesArray = dataMediaQueries(tabs, "tabs");
+    if (mdQueriesArray && mdQueriesArray.length) {
+      mdQueriesArray.forEach(mdQueriesItem => {
+        // Событие
+        mdQueriesItem.matchMedia.addEventListener("change", function () {
+          setTitlePosition(mdQueriesItem.itemsArray, mdQueriesItem.matchMedia);
+        });
+        setTitlePosition(mdQueriesItem.itemsArray, mdQueriesItem.matchMedia);
+      });
+    }
+  }
+
+  // Установка позиций заголовков
+  function setTitlePosition(tabsMediaArray, matchMedia) {
+    tabsMediaArray.forEach(tabsMediaItem => {
+      tabsMediaItem = tabsMediaItem.item;
+      let tabsTitles = tabsMediaItem.querySelector('[data-tabs-titles]');
+      let tabsTitleItems = tabsMediaItem.querySelectorAll('[data-tabs-title]');
+      let tabsContent = tabsMediaItem.querySelector('[data-tabs-body]');
+      let tabsContentItems = tabsMediaItem.querySelectorAll('[data-tabs-item]');
+      tabsTitleItems = Array.from(tabsTitleItems).filter(item => item.closest('[data-tabs]') === tabsMediaItem);
+      tabsContentItems = Array.from(tabsContentItems).filter(item => item.closest('[data-tabs]') === tabsMediaItem);
+      tabsContentItems.forEach((tabsContentItem, index) => {
+        if (matchMedia.matches) {
+          tabsContent.append(tabsTitleItems[index]);
+          tabsContent.append(tabsContentItem);
+          tabsMediaItem.classList.add('_tab-spoller');
+        } else {
+          tabsTitles.append(tabsTitleItems[index]);
+          tabsMediaItem.classList.remove('_tab-spoller');
+        }
+      });
+    });
+  }
+
+  // Инициализация табов
+  function initTabs(tabsBlock) {
+    let tabsTitles = tabsBlock.querySelectorAll('[data-tabs-titles]>*');
+    let tabsContent = tabsBlock.querySelectorAll('[data-tabs-body]>*');
+    const tabsBlockIndex = tabsBlock.dataset.tabsIndex;
+    const tabsActiveHashBlock = tabsActiveHash[0] == tabsBlockIndex;
+
+    if (tabsActiveHashBlock) {
+      const tabsActiveTitle = tabsBlock.querySelector('[data-tabs-titles]>._tab-active');
+      tabsActiveTitle ? tabsActiveTitle.classList.remove('_tab-active') : null;
+    }
+    if (tabsContent.length) {
+      tabsContent.forEach((tabsContentItem, index) => {
+        tabsTitles[index].setAttribute('data-tabs-title', '');
+        tabsContentItem.setAttribute('data-tabs-item', '');
+
+        if (tabsActiveHashBlock && index == tabsActiveHash[1]) {
+          tabsTitles[index].classList.add('_tab-active');
+        }
+        tabsContentItem.hidden = !tabsTitles[index].classList.contains('_tab-active');
+      });
+    }
+    setTabsStatus(tabsBlock);
+  }
+
+  // Установка статуса (открыт/закрыт) и анимации
+  function setTabsStatus(tabsBlock) {
+    let tabsTitles = tabsBlock.querySelectorAll('[data-tabs-title]');
+    let tabsContent = tabsBlock.querySelectorAll('[data-tabs-item]');
+    const tabsBlockIndex = tabsBlock.dataset.tabsIndex;
+
+    function isTabsAnimate(tabsBlock) {
+      if (tabsBlock.hasAttribute('data-tabs-animate')) {
+        return tabsBlock.dataset.tabsAnimate > 0 ? Number(tabsBlock.dataset.tabsAnimate) : 500;
+      }
+      return false;
+    }
+    const tabsBlockAnimate = isTabsAnimate(tabsBlock);
+
+    if (tabsContent.length > 0) {
+      const isHash = tabsBlock.hasAttribute('data-tabs-hash');
+      tabsContent = Array.from(tabsContent).filter(item => item.closest('[data-tabs]') === tabsBlock);
+      tabsTitles = Array.from(tabsTitles).filter(item => item.closest('[data-tabs]') === tabsBlock);
+      tabsContent.forEach((tabsContentItem, index) => {
+        if (tabsTitles[index].classList.contains('_tab-active')) {
+          if (tabsBlockAnimate) {
+            _slideDown(tabsContentItem, tabsBlockAnimate);
+          } else {
+            tabsContentItem.hidden = false;
+          }
+          if (isHash && !tabsContentItem.closest('.popup')) {
+            setHash(`tab-${tabsBlockIndex}-${index}`);
+          }
+        } else {
+          if (tabsBlockAnimate) {
+            _slideUp(tabsContentItem, tabsBlockAnimate);
+          } else {
+            tabsContentItem.hidden = true;
+          }
+        }
+      });
+    }
+  }
+
+  // Обработка кликов
+  function setTabsAction(e) {
+    const el = e.target;
+    if (el.closest('[data-tabs-title]')) {
+      const tabTitle = el.closest('[data-tabs-title]');
+      const tabsBlock = tabTitle.closest('[data-tabs]');
+
+      // Добавляем логику для изменения размера контейнера
+      handleAuthorizationTabsResize(tabTitle, tabsBlock);
+
+      if (!tabTitle.classList.contains('_tab-active') && !tabsBlock.querySelector('._slide')) {
+        let tabActiveTitle = tabsBlock.querySelectorAll('[data-tabs-title]._tab-active');
+        tabActiveTitle = Array.from(tabActiveTitle).filter(item => item.closest('[data-tabs]') === tabsBlock);
+        if (tabActiveTitle.length) tabActiveTitle[0].classList.remove('_tab-active');
+        tabTitle.classList.add('_tab-active');
+        setTabsStatus(tabsBlock);
+      }
+      e.preventDefault();
+    }
+  }
+
+  // Функция для обработки изменения размера контейнера авторизации
+  function handleAuthorizationTabsResize(tabTitle, tabsBlock) {
+    const authorizationBlock = tabsBlock.closest('.tabs-authorization');
+    if (authorizationBlock) {
+      // Находим оба элемента, к которым хотим добавить класс
+      const contentBlock = authorizationBlock.closest('.block-authorization__content'); // Или просто tabsBlock.closest('.block-authorization__content');
+      const picBlock = contentBlock ? contentBlock.querySelector('.block-authorization__pic1') : null;
+
+      const tabIndex = Array.from(tabTitle.parentNode.children).indexOf(tabTitle);
+      const tabText = tabTitle.textContent.trim().toLowerCase();
+
+      // Если это вкладка "Вход"
+      if (tabIndex === 0 || tabText.includes('вход') || tabText.includes('login') || tabText.includes('sign in')) {
+        // Добавляем класс _content-compact к block-authorization__content
+        if (contentBlock) {
+          contentBlock.classList.add('_content-compact');
+        }
+        // Добавляем класс _content-compact к block-authorization__pic1
+        if (picBlock) {
+          picBlock.classList.add('_content-compact');
+        }
+        // (Опционально) также добавляем класс к authorizationBlock, если это нужно по старой логике
+        authorizationBlock.classList.add('_compact');
+      } else {
+        // Если другая вкладка, убираем классы
+        if (contentBlock) {
+          contentBlock.classList.remove('_content-compact');
+        }
+        if (picBlock) {
+          picBlock.classList.remove('_content-compact');
+        }
+        // (Опционально) также убираем класс у authorizationBlock
+        authorizationBlock.classList.remove('_compact');
+      }
+    }
+  }
+}
+tabs();
+
+//========================================================================================================================================================
+
+//Плаващая кнопка
+const floatingButton = document.querySelector('.floating-button');
+if (floatingButton) {
+  function debounce(func, wait, immediate) {
+    let timeout;
+    return function executedFunction() {
+      const context = this;
+      const args = arguments;
+      const later = function () {
+        timeout = null;
+        if (!immediate) func.apply(context, args);
+      };
+      const callNow = immediate && !timeout;
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+      if (callNow) func.apply(context, args);
+    };
+  };
+  let isMobile = window.matchMedia("(max-width: 992px)").matches;
+  const targetBlock = document.querySelector('.bottom-personal-cabinet__right');
+  const handleScroll = debounce(function () {
+    isMobile = window.matchMedia("(max-width: 992px)").matches;
+
+    if (!isMobile) {
+      floatingButton.classList.remove('hidden');
+      return;
+    }
+
+    const targetRect = targetBlock.getBoundingClientRect();
+    const targetTop = targetRect.top + window.scrollY;
+    const targetBottom = targetRect.bottom + window.scrollY;
+
+    const windowHeight = window.innerHeight;
+
+    const scrollY = window.scrollY;
+
+    const isTargetVisible = (targetTop <= scrollY + windowHeight) && (targetBottom >= scrollY);
+
+    if (isTargetVisible) {
+      floatingButton.classList.add('hidden');
+    } else {
+      floatingButton.classList.remove('hidden');
+    }
+  });
+  window.addEventListener('scroll', handleScroll, { passive: true });
+
+  window.addEventListener('resize', debounce(function () {
+    isMobile = window.matchMedia("(max-width: 992px)").matches;
+    handleScroll();
+  }));
+
+  handleScroll();
+
+}
+document.addEventListener("DOMContentLoaded", function () {
+  const tabs = document.querySelectorAll('.tabs-personal-cabinet__title');
+
+  // Функция для определения активных табов и показа соответствующего контента
+  function updateContent() {
+    // Находим активные табы в каждой группе
+    const activeTabs = document.querySelectorAll('.tabs-personal-cabinet__title._tab-active');
+    const activeIds = Array.from(activeTabs).map(tab => tab.getAttribute('data-id'));
+
+    // Скрываем весь контент
+    const allContents = document.querySelectorAll('.tabs-personal-cabinet__body');
+    allContents.forEach(content => content.classList.remove('_tab-active'));
+
+    // Показываем контент, который соответствует ВСЕМ активным табам
+    activeIds.forEach(id => {
+      const targetContent = document.querySelector(`.tabs-personal-cabinet__body[data-id="${id}"]`);
+      if (targetContent) {
+        targetContent.classList.add('_tab-active');
+      }
+    });
+  }
+
+  // Обработчик кликов для всех табов
+  tabs.forEach(tab => {
+    tab.addEventListener('click', function () {
+      // Находим родительскую навигацию
+      const parentNav = this.closest('.tabs-personal-cabinet__navigation');
+
+      // Убираем активный класс у всех табов в этой же навигации
+      const siblingTabs = parentNav.querySelectorAll('.tabs-personal-cabinet__title');
+      siblingTabs.forEach(t => t.classList.remove('_tab-active'));
+
+      // Добавляем активный класс текущему табу
+      this.classList.add('_tab-active');
+
+      // Обновляем отображаемый контент
+      updateContent();
+    });
+  });
+});
